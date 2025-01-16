@@ -23,9 +23,9 @@ const Reviews = () => {
   ];
 
   return (
-    <div className="py-8 px-4 md:px-12 lg:px-20 bg-gray-100">
+    <div className="py-12 px-4 md:px-8 lg:px-8 mx-auto bg-gray-100">
       <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
-        Latest User Reviews
+        Latest User <span className="text-[#C82021]">Reviews</span> 
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {reviews.map((review, index) => (

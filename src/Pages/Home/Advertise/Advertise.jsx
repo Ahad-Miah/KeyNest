@@ -3,9 +3,9 @@ import banner1 from '../../../assets/bi2.avif'
 
 const Advertise = () => {
     return (
-        <div>
+        <div className='px-4 md:px-8 mx-auto'>
             <div>
-                <h1 className='text-4xl text-center font-bold mb-5'>Features Properties for sale</h1>
+                <h1 className='text-4xl text-center font-bold mb-5'> <span className='text-[#C82021]'>Features</span> Properties for sale</h1>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 items-center justify-center gap-4'>
                 <div className="group card bg-base-100 shadow-xl overflow-hidden">
@@ -13,7 +13,7 @@ const Advertise = () => {
                         <img
                             src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
                             alt="Shoes"
-                            className="transition-transform duration-500 group-hover:scale-110"
+                            className="transition-transform duration-500 group-hover:scale-125"
                         />
                     </figure>
                     <div className="card-body px-2">
