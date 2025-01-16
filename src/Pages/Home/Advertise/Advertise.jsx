@@ -3,7 +3,7 @@ import banner1 from '../../../assets/bi2.avif'
 
 const Advertise = () => {
     return (
-        <div className='px-4 md:px-8 mx-auto'>
+        <div className='px-4 md:px-8 mx-auto bg-gray-50 py-12'>
             <div>
                 <h1 className='text-4xl text-center font-bold mb-5'> <span className='text-[#C82021]'>Features</span> Properties for sale</h1>
             </div>

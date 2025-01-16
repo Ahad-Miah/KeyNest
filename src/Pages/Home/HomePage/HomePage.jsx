@@ -3,7 +3,7 @@ import Banner from '../Banner/Banner';
 import Advertise from '../Advertise/Advertise';
 import Reviews from '../Reviews/Reviews';
 import HowItWorks from '../HowItWorks/HowItWorks';
-import { FaUsers, FaBuilding, FaHandshake } from "react-icons/fa";
+import AboutUS from '../AboutUs/AboutUS';
 
 const HomePage = () => {
     return (
@@ -21,7 +21,7 @@ const HomePage = () => {
                 <HowItWorks></HowItWorks>
             </section>
             <section>
-        
+            <AboutUS></AboutUS>
             </section>
         </div>
     );

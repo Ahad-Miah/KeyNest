@@ -22,7 +22,7 @@ const HowItWorks = () => {
   
     return (
       <div className="py-12 px-4 md:px-8 mx-auto bg-gray-50">
-        <div className="max-w-7xl mx-auto  text-center">
+        <div className="mx-auto  text-center">
           <h2 className="text-4xl font-bold text-gray-800">How It Works</h2>
           <p className="text-gray-600 mt-2 mb-8">
             Follow these 3 easy steps to find your dream property
