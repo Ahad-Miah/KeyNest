@@ -1,5 +1,6 @@
 import React from 'react';
-import Drawer from './Drawer/Drawer';
+import Drawer from '../Drawer/Drawer';
+
 
 const Navbar = () => {
 
