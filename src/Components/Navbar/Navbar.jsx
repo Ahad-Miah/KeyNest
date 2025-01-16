@@ -21,7 +21,7 @@ const Navbar = () => {
 
     </>
     return (
-        <div className="navbar px-4 md:px-8">
+        <div className="navbar px-4 md:px-8 sticky z-10 top-0 bg-white border border-b-2 border-base-200">
             <div className="navbar-start">
                 <div className='lg:hidden'>
                     <Drawer links={links}></Drawer>
