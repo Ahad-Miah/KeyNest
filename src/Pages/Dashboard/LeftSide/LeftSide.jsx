@@ -35,10 +35,12 @@ const LeftSide = () => {
             Property Brought
         </li>
         </Link>
+        <Link to='/dashboard/reviews'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <MdOutlineReviews className="mr-3 text-lg" />
             My Reviews
         </li>
+        </Link>
     </>
     const agentLinks = <>
         <li className="flex items-center text-blue-600 font-medium bg-blue-100 p-2 rounded-lg">

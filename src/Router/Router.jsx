@@ -8,6 +8,7 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import MyProfile from "../Pages/Dashboard/RightSideContent/MyProfile/MyProfile";
 import Wishlist from "../Pages/Dashboard/RightSideContent/WishList/WshList";
 import PropertyBrought from "../Pages/Dashboard/RightSideContent/propertyBrought/propertyBrought";
+import ReviewsPage from "../Pages/Dashboard/RightSideContent/ReviewsPage/ReviewsPage";
 
 
 const Router = createBrowserRouter([
@@ -48,6 +49,10 @@ const Router = createBrowserRouter([
             {
                 path:'propertyBrought',
                 element:<PropertyBrought></PropertyBrought>
+            },
+            {
+                path:'reviews',
+                element:<ReviewsPage></ReviewsPage>
             }
 
         ]
