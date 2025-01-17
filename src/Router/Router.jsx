@@ -7,6 +7,7 @@ import AllProperties from "../Pages/AllProperties/AllProperties";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import MyProfile from "../Pages/Dashboard/RightSideContent/MyProfile/MyProfile";
 import Wishlist from "../Pages/Dashboard/RightSideContent/WishList/WshList";
+import PropertyBrought from "../Pages/Dashboard/RightSideContent/propertyBrought/propertyBrought";
 
 
 const Router = createBrowserRouter([
@@ -43,7 +44,12 @@ const Router = createBrowserRouter([
             {
                 path:'wishList',
                 element:<Wishlist></Wishlist>
+            },
+            {
+                path:'propertyBrought',
+                element:<PropertyBrought></PropertyBrought>
             }
+
         ]
     }
 ])
