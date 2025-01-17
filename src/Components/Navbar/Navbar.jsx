@@ -1,11 +1,12 @@
 import React from 'react';
 import Drawer from '../Drawer/Drawer';
+import { Link, NavLink } from 'react-router-dom';
 
 
 const Navbar = () => {
 
     const links = <>
-        <li><a>Home</a></li>
+        <li><a><NavLink to='/'>Home</NavLink></a></li>
         <li><a>All Properties</a></li>
         <li><a>Janina</a></li>
         <li><a>Janina</a></li>
@@ -38,7 +39,7 @@ const Navbar = () => {
             <div>
                 {profile}
             </div>
-                <a className="btn">Sign in</a>
+                <Link to='login' className="btn">Sign in</Link>
             </div>
         </div>
     );
