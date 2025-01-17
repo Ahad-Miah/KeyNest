@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import Drawer from "../../Components/Drawer/Drawer";
 import LeftSide from "./LeftSide/LeftSide";
 
@@ -18,7 +19,7 @@ const Dashboard = () => {
             </div>
            </div>
            <div className="lg:col-span-9 border mt-5 lg:mt-0 border-blue-900">
-            this is right side
+           <Outlet></Outlet>
            </div>
         </div>
     );

@@ -19,10 +19,10 @@ import { Link } from 'react-router-dom';
 const LeftSide = () => {
 
     const userLinks = <>
-        <li className="flex items-center text-blue-600 font-medium bg-blue-100 p-2 rounded-lg">
+        <Link to='/dashboard/myProfile'><li className="flex items-center text-blue-600 font-medium bg-blue-100 p-2 rounded-lg">
             <FaUserFriends className="mr-3 text-lg" />
             My Profile
-        </li>
+        </li></Link>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <BsHeart className="mr-3 text-lg" />
             WishList
