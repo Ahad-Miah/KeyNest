@@ -11,6 +11,7 @@ import PropertyBrought from "../Pages/Dashboard/RightSideContent/propertyBrought
 import ReviewsPage from "../Pages/Dashboard/RightSideContent/ReviewsPage/ReviewsPage";
 import AddProperty from "../Pages/Dashboard/RightSideContent/AddProperty/AddProperty";
 import AddedProperties from "../Pages/Dashboard/RightSideContent/AddedProperties/AddedProperties";
+import SoldProperties from "../Pages/Dashboard/RightSideContent/SoldProperties/SoldProperties";
 
 
 const Router = createBrowserRouter([
@@ -63,6 +64,10 @@ const Router = createBrowserRouter([
             {
                 path:'myAddedProperties',
                 element:<AddedProperties></AddedProperties>
+            },
+            {
+                path:'soldProperties',
+                element:<SoldProperties></SoldProperties>
             }
 
         ]
