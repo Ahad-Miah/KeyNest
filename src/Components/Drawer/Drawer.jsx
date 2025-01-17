@@ -19,7 +19,7 @@ const Drawer = ({links}) => {
           </label>
         </div>
         <div className="drawer-side mt-[67px]">
-          <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
+          <label onClick={()=>setToggle(false)} htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
           <ul className="menu bg-base-200 text-base-content min-h-full w-[70%] md:w-[40%] p-4">
             {/* Sidebar content here */}
             {links}
