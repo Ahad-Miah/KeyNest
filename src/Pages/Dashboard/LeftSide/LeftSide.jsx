@@ -23,10 +23,12 @@ const LeftSide = () => {
             <FaUserFriends className="mr-3 text-lg" />
             My Profile
         </li></Link>
+        <Link to='/dashboard/wishList'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <BsHeart className="mr-3 text-lg" />
             WishList
         </li>
+        </Link>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <BsBuildings className="mr-3 text-lg" />
             Property Brought

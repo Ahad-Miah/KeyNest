@@ -6,6 +6,7 @@ import Register from "../Pages/Register/Register";
 import AllProperties from "../Pages/AllProperties/AllProperties";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import MyProfile from "../Pages/Dashboard/RightSideContent/MyProfile/MyProfile";
+import Wishlist from "../Pages/Dashboard/RightSideContent/WishList/WshList";
 
 
 const Router = createBrowserRouter([
@@ -38,6 +39,10 @@ const Router = createBrowserRouter([
             {
                 path:'myProfile',
                 element:<MyProfile></MyProfile>
+            },
+            {
+                path:'wishList',
+                element:<Wishlist></Wishlist>
             }
         ]
     }
