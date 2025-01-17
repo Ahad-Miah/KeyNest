@@ -4,6 +4,7 @@ import HomePage from "../Pages/Home/HomePage/HomePage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import AllProperties from "../Pages/AllProperties/AllProperties";
+import Dashboard from "../Pages/Dashboard/Dashboard";
 
 
 const Router = createBrowserRouter([
@@ -28,6 +29,10 @@ const Router = createBrowserRouter([
                 element:<Register></Register>
             }
         ]
+    },
+    {
+        path:'dashboard',
+        element:<Dashboard></Dashboard>
     }
 ])
    
