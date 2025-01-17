@@ -9,6 +9,7 @@ import MyProfile from "../Pages/Dashboard/RightSideContent/MyProfile/MyProfile";
 import Wishlist from "../Pages/Dashboard/RightSideContent/WishList/WshList";
 import PropertyBrought from "../Pages/Dashboard/RightSideContent/propertyBrought/propertyBrought";
 import ReviewsPage from "../Pages/Dashboard/RightSideContent/ReviewsPage/ReviewsPage";
+import AddProperty from "../Pages/Dashboard/RightSideContent/AddProperty/AddProperty";
 
 
 const Router = createBrowserRouter([
@@ -53,6 +54,10 @@ const Router = createBrowserRouter([
             {
                 path:'reviews',
                 element:<ReviewsPage></ReviewsPage>
+            },
+            {
+                path:'addProperty',
+                element:<AddProperty></AddProperty>
             }
 
         ]

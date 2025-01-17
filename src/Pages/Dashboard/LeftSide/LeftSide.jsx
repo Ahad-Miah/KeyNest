@@ -47,10 +47,12 @@ const LeftSide = () => {
             <FaUserFriends className="mr-3 text-lg" />
             My Profile
         </li>
+        <Link to='/dashboard/addProperty'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <IoMdAdd className="mr-3 text-lg" />
             Add Property
         </li>
+        </Link>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <TbBuildingCommunity className="mr-3 text-lg" />
             My Added properties
