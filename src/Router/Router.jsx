@@ -10,6 +10,7 @@ import Wishlist from "../Pages/Dashboard/RightSideContent/WishList/WshList";
 import PropertyBrought from "../Pages/Dashboard/RightSideContent/propertyBrought/propertyBrought";
 import ReviewsPage from "../Pages/Dashboard/RightSideContent/ReviewsPage/ReviewsPage";
 import AddProperty from "../Pages/Dashboard/RightSideContent/AddProperty/AddProperty";
+import AddedProperties from "../Pages/Dashboard/RightSideContent/AddedProperties/AddedProperties";
 
 
 const Router = createBrowserRouter([
@@ -58,6 +59,10 @@ const Router = createBrowserRouter([
             {
                 path:'addProperty',
                 element:<AddProperty></AddProperty>
+            },
+            {
+                path:'myAddedProperties',
+                element:<AddedProperties></AddedProperties>
             }
 
         ]

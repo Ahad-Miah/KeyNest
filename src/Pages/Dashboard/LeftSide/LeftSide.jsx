@@ -53,10 +53,12 @@ const LeftSide = () => {
             Add Property
         </li>
         </Link>
-        <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
+       <Link to='/dashboard/myAddedProperties'>
+       <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <TbBuildingCommunity className="mr-3 text-lg" />
             My Added properties
         </li>
+       </Link>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <GrMoney className="mr-3 text-lg" />
             My Sold Properties
