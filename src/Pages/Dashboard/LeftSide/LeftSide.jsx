@@ -84,10 +84,12 @@ const LeftSide = () => {
             Manage Properties
         </li>
        </Link>
+        <Link to='/dashboard/manageUsers'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <MdManageAccounts className="mr-3 text-lg" />
             Manage Users
         </li>
+        </Link>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <MdOutlineRateReview className="mr-3 text-lg" />
             Manage Reviews

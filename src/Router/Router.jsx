@@ -14,6 +14,7 @@ import AddedProperties from "../Pages/Dashboard/RightSideContent/AddedProperties
 import SoldProperties from "../Pages/Dashboard/RightSideContent/SoldProperties/SoldProperties";
 import RequestedProperties from "../Pages/Dashboard/RightSideContent/RequestedProperties/RequestedProperties";
 import ManagePropertis from "../Pages/Dashboard/RightSideContent/ManagePropertise/ManagePropertise";
+import ManageUsers from "../Pages/Dashboard/RightSideContent/ManageUsers/ManageUsers";
 
 
 const Router = createBrowserRouter([
@@ -78,6 +79,10 @@ const Router = createBrowserRouter([
             {
                 path:'manageProperties',
                 element:<ManagePropertis></ManagePropertis>
+            },
+            {
+                path:'manageUsers',
+                element:<ManageUsers></ManageUsers>
             }
 
         ]
