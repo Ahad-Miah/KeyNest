@@ -6,15 +6,16 @@ import Register from "../Pages/Register/Register";
 import AllProperties from "../Pages/AllProperties/AllProperties";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import MyProfile from "../Pages/Dashboard/RightSideContent/MyProfile/MyProfile";
-import Wishlist from "../Pages/Dashboard/RightSideContent/WishList/WshList";
-import PropertyBrought from "../Pages/Dashboard/RightSideContent/propertyBrought/propertyBrought";
-import ReviewsPage from "../Pages/Dashboard/RightSideContent/ReviewsPage/ReviewsPage";
-import AddProperty from "../Pages/Dashboard/RightSideContent/AddProperty/AddProperty";
-import AddedProperties from "../Pages/Dashboard/RightSideContent/AddedProperties/AddedProperties";
-import SoldProperties from "../Pages/Dashboard/RightSideContent/SoldProperties/SoldProperties";
-import RequestedProperties from "../Pages/Dashboard/RightSideContent/RequestedProperties/RequestedProperties";
-import ManagePropertis from "../Pages/Dashboard/RightSideContent/ManagePropertise/ManagePropertise";
-import ManageUsers from "../Pages/Dashboard/RightSideContent/ManageUsers/ManageUsers";
+import Wishlist from "../Pages/Dashboard/RightSideContent/UsersRoutes/WishList/WshList";
+import PropertyBrought from "../Pages/Dashboard/RightSideContent/UsersRoutes/propertyBrought/propertyBrought";
+import ReviewsPage from "../Pages/Dashboard/RightSideContent/UsersRoutes/ReviewsPage/ReviewsPage";
+import AddProperty from "../Pages/Dashboard/RightSideContent/AgentRoutes/AddProperty/AddProperty";
+import AddedProperties from "../Pages/Dashboard/RightSideContent/AgentRoutes/AddedProperties/AddedProperties";
+import SoldProperties from "../Pages/Dashboard/RightSideContent/AgentRoutes/SoldProperties/SoldProperties";
+import RequestedProperties from "../Pages/Dashboard/RightSideContent/AgentRoutes/RequestedProperties/RequestedProperties";
+import ManagePropertis from "../Pages/Dashboard/RightSideContent/AdminRoutes/ManagePropertise/ManagePropertise";
+import ManageUsers from "../Pages/Dashboard/RightSideContent/AdminRoutes/ManageUsers/ManageUsers";
+import ManageReviews from "../Pages/Dashboard/RightSideContent/AdminRoutes/ManageReviews/ManageReviews";
 
 
 const Router = createBrowserRouter([
@@ -83,6 +84,10 @@ const Router = createBrowserRouter([
             {
                 path:'manageUsers',
                 element:<ManageUsers></ManageUsers>
+            },
+            {
+                path:'manageReviews',
+                element:<ManageReviews></ManageReviews>
             }
 
         ]

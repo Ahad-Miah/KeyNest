@@ -43,10 +43,12 @@ const LeftSide = () => {
         </Link>
     </>
     const agentLinks = <>
+        <Link to='/dashboard/myProfile'>
         <li className="flex items-center text-blue-600 font-medium bg-blue-100 p-2 rounded-lg">
             <FaUserFriends className="mr-3 text-lg" />
             My Profile
         </li>
+        </Link>
         <Link to='/dashboard/addProperty'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <IoMdAdd className="mr-3 text-lg" />
@@ -74,10 +76,12 @@ const LeftSide = () => {
     </>
 
     const adminLinks=<>
-     <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
+        <Link to='/dashboard/myProfile'>
+        <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <FaUserFriends className="mr-3 text-lg" />
            My profile
         </li>
+        </Link>
        <Link to='/dashboard/manageProperties'>
        <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <MdOutlineManageHistory className="mr-3 text-lg" />
@@ -90,10 +94,12 @@ const LeftSide = () => {
             Manage Users
         </li>
         </Link>
+        <Link to='/dashboard/manageReviews'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <MdOutlineRateReview className="mr-3 text-lg" />
             Manage Reviews
         </li>
+        </Link>
     </>
     return (
         <div className="bg-white  shadow-xl flex flex-col p-4 border border-base-300 rounded-lg">
