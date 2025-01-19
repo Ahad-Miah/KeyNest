@@ -78,10 +78,12 @@ const LeftSide = () => {
             <FaUserFriends className="mr-3 text-lg" />
            My profile
         </li>
-        <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
+       <Link to='/dashboard/manageProperties'>
+       <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <MdOutlineManageHistory className="mr-3 text-lg" />
             Manage Properties
         </li>
+       </Link>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <MdManageAccounts className="mr-3 text-lg" />
             Manage Users

@@ -13,6 +13,7 @@ import AddProperty from "../Pages/Dashboard/RightSideContent/AddProperty/AddProp
 import AddedProperties from "../Pages/Dashboard/RightSideContent/AddedProperties/AddedProperties";
 import SoldProperties from "../Pages/Dashboard/RightSideContent/SoldProperties/SoldProperties";
 import RequestedProperties from "../Pages/Dashboard/RightSideContent/RequestedProperties/RequestedProperties";
+import ManagePropertis from "../Pages/Dashboard/RightSideContent/ManagePropertise/ManagePropertise";
 
 
 const Router = createBrowserRouter([
@@ -73,6 +74,10 @@ const Router = createBrowserRouter([
             {
                 path:'requestedProperties',
                 element:<RequestedProperties></RequestedProperties>
+            },
+            {
+                path:'manageProperties',
+                element:<ManagePropertis></ManagePropertis>
             }
 
         ]
