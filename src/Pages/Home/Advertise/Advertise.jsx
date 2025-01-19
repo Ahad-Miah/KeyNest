@@ -25,7 +25,7 @@ const Advertise = () => {
                         </h2>
                         <p>Price Range</p>
                         <div className="card-actions w-full">
-                            <button className="w-full btn btn-accent">View Details</button>
+                            <button className="w-full btn bg-[#C82021] text-white">View Details</button>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ const Advertise = () => {
                         </h2>
                         <p>Price Range</p>
                         <div className="card-actions w-full">
-                            <button className="w-full btn btn-accent">View Details</button>
+                            <button className="w-full btn bg-[#252525] text-white">View Details</button>
                         </div>
                     </div>
                 </div>

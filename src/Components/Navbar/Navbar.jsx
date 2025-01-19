@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Drawer from '../Drawer/Drawer';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 
 
 const Navbar = () => {
-
     const links = <>
-        <li><a><NavLink to='/'>Home</NavLink></a></li>
-        <li><a><NavLink to='/allProperties'>All Properties</NavLink></a></li>
-        <li><a><NavLink to='/dashboard'>Dashboard</NavLink></a></li>
-        
-        <li><a>Janina</a></li>
-
+       <NavLink 
+        className={({ isActive }) =>
+    isActive ? " text-[#C82021] font-bold text-[16px] underline" : ""}
+   to='/'> <li><a>Home</a></li></NavLink>
+        <NavLink
+        className={({ isActive }) =>
+            isActive ? " text-[#C82021] font-bold text-[16px] underline" : ""}
+         to='/allProperties'><li><a>All Properties</a></li></NavLink>
+        <NavLink
+        className={({ isActive }) =>
+            isActive ? " text-[#C82021] font-bold text-[16px] underline" : ""}
+         to='/dashboard'><li><a>Dashboard</a></li></NavLink>
     </>
 
     const profile = <>
@@ -28,10 +34,10 @@ const Navbar = () => {
                 <div className='lg:hidden'>
                     <Drawer links={links}></Drawer>
                 </div>
-                <a className="font-bold text-xl md:text-3xl text-[#C82021]">KeyNest</a>
+                <Link to='/' className="font-bold text-xl md:text-3xl text-[#C82021]">KeyNest</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal flex justify-center items-center px-1">
                     {links}
                 </ul>
             </div>
@@ -40,7 +46,7 @@ const Navbar = () => {
             <div>
                 {profile}
             </div>
-                <Link to='login' className="btn">Sign in</Link>
+                <Link to='login' className="btn text-white bg-[#252525] px-7">Sign in</Link>
             </div>
         </div>
     );

@@ -8,7 +8,7 @@ import AboutUS from '../AboutUs/AboutUS';
 const HomePage = () => {
     return (
         <div>
-            <section className='mb-14'>
+            <section>
                 <Banner></Banner>
             </section>
             <section>
