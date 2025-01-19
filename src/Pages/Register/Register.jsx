@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import registerAnimation from "../../assets/LootieFiles/RegisterAnimation.json";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import { FaGoogle } from "react-icons/fa";
 import axios from "axios";
@@ -13,7 +13,9 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 const Register = () => {
   const [uploadedImageUrl, setUploadedImageUrl] = useState("");
 
-  const {register,handleUpdateProfile,googleLogin}=useContext(AuthContext);
+  const {register,handleUpdateProfile,googleLogin,setUser}=useContext(AuthContext);
+
+  const navigate=useNavigate();
 
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
@@ -65,9 +67,11 @@ const Register = () => {
     .then(res => {
         handleUpdateProfile(name, image)
             .then(res => {
+
                 toast.success("Registration successful")  
+                navigate('/');
             })
-            console.log(res);
+            // console.log(res);
 
     })
     .catch(err => console.log("err", err));

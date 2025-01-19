@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 const Login = () => {
 
-        const {login,googleLogin}=useContext(AuthContext);
+        const {login,googleLogin,setLoading}=useContext(AuthContext);
     const handleLogin=(e)=>{
         e.preventDefault();
         const email=e.target.email.value;
@@ -22,6 +22,7 @@ const Login = () => {
         })
         .catch(err=>
             {console.log(err)
+                setLoading(false);
                 toast.error("Error !Invalid Email or Password!");
             });
 
