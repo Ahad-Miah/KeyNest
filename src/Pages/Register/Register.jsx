@@ -13,7 +13,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 const Register = () => {
   const [uploadedImageUrl, setUploadedImageUrl] = useState("");
 
-  const {register,handleUpdateProfile}=useContext(AuthContext);
+  const {register,handleUpdateProfile,googleLogin}=useContext(AuthContext);
 
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
@@ -74,6 +74,16 @@ const Register = () => {
 
 
   };
+  const handleGoogleLogin=()=>{
+          googleLogin()
+          .then(res=>{
+              console.log(res);
+              toast.success("Login Successful")
+          })
+          .catch(err=>{
+              console.log(err);
+          })
+      }
 
   return (
     <div className="hero bg-base-100 min-h-screen">
@@ -157,7 +167,7 @@ const Register = () => {
           <div className="px-6 pb-4 -mt-6">
             <div className="divider font-bold">OR</div>
             <button
-             
+             onClick={handleGoogleLogin}
               className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all w-full bg-red-500 rounded-xl group"
             >
               <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-red-700 rounded group-hover:-mr-4 group-hover:-mt-4">
