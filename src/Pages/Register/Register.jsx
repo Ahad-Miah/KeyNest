@@ -156,8 +156,8 @@ const Register = () => {
           </form>
           <div className="px-6 pb-4 -mt-6">
             <div className="divider font-bold">OR</div>
-            <a
-              href
+            <button
+             
               className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all w-full bg-red-500 rounded-xl group"
             >
               <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-red-700 rounded group-hover:-mr-4 group-hover:-mt-4">
@@ -167,7 +167,7 @@ const Register = () => {
               <span className="relative w-full text-center text-white flex items-center justify-center gap-3 transition-colors duration-200 ease-in-out group-hover:text-white">
                 <FaGoogle /> Login With Google
               </span>
-            </a>
+            </button>
           </div>
         </div>
       </div>
