@@ -65,10 +65,12 @@ const LeftSide = () => {
             My Sold Properties
         </li>
         </Link>
+        <Link to='/dashboard/requestedProperties'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
         <CiSquareQuestion  className="mr-3 text-lg" />
             Requested Properties
         </li>
+        </Link>
     </>
 
     const adminLinks=<>

@@ -12,6 +12,7 @@ import ReviewsPage from "../Pages/Dashboard/RightSideContent/ReviewsPage/Reviews
 import AddProperty from "../Pages/Dashboard/RightSideContent/AddProperty/AddProperty";
 import AddedProperties from "../Pages/Dashboard/RightSideContent/AddedProperties/AddedProperties";
 import SoldProperties from "../Pages/Dashboard/RightSideContent/SoldProperties/SoldProperties";
+import RequestedProperties from "../Pages/Dashboard/RightSideContent/RequestedProperties/RequestedProperties";
 
 
 const Router = createBrowserRouter([
@@ -68,6 +69,10 @@ const Router = createBrowserRouter([
             {
                 path:'soldProperties',
                 element:<SoldProperties></SoldProperties>
+            },
+            {
+                path:'requestedProperties',
+                element:<RequestedProperties></RequestedProperties>
             }
 
         ]
