@@ -22,7 +22,9 @@ const Navbar = () => {
             className={({ isActive }) =>
                 isActive ? " text-[#C82021] font-bold text-[16px] underline" : ""}
             to='/'> <li><a>Home</a></li></NavLink>
-        <NavLink
+        {
+            user?<>
+            <NavLink
             className={({ isActive }) =>
                 isActive ? " text-[#C82021] font-bold text-[16px] underline" : ""}
             to='/allProperties'><li><a>All Properties</a></li></NavLink>
@@ -30,6 +32,8 @@ const Navbar = () => {
             className={({ isActive }) =>
                 isActive ? " text-[#C82021] font-bold text-[16px] underline" : ""}
             to='/dashboard'><li><a>Dashboard</a></li></NavLink>
+            </>:""
+        }
     </>
 
     const profile = <>

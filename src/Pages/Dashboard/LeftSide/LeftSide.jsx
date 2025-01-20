@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { BiRightArrow } from 'react-icons/bi';
 import { FaUserFriends, FaCalendarAlt, FaFileInvoiceDollar } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
@@ -14,9 +14,28 @@ import { MdOutlineManageHistory } from "react-icons/md";
 import { MdManageAccounts } from "react-icons/md";
 import { MdOutlineRateReview } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import  { AuthContext } from '../../../Provider/AuthProvider/AuthProvider';
+import axios from 'axios';
 
 
 const LeftSide = () => {
+    const{user}=useContext(AuthContext);
+    console.log(user?.email);
+
+    // const [role,setRole]=useState();
+
+    const {data: role}=useQuery({
+        queryKey: ['role',user?.email],
+  queryFn: async () => {
+    const {data} = await axios.get(`${import.meta.env.VITE_API_URL}user/role/${user?.email}`)
+    return data.role;
+  },
+    })
+    console.log(role);
+  
+
+        
 
     const userLinks = <>
         <Link to='/dashboard/myProfile'><li className="flex items-center text-blue-600 font-medium bg-blue-100 p-2 rounded-lg">

@@ -1,12 +1,14 @@
 import Lottie from 'lottie-react';
 import React, { useContext } from 'react';
 import loginAnimation from '../../assets/LootieFiles/LoginAnimation.json'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Login = () => {
+
+    const navigate=useNavigate();
 
         const {login,googleLogin,setLoading}=useContext(AuthContext);
     const handleLogin=(e)=>{
@@ -19,6 +21,7 @@ const Login = () => {
             e.target.reset();
             console.log(res);
             toast.success("Logged in! Congratulations!");
+            navigate(location?.state ?location.state:"/");
         })
         .catch(err=>
             {console.log(err)
@@ -32,7 +35,8 @@ const Login = () => {
         googleLogin()
         .then(res=>{
             console.log(res);
-            toast.success("Login Successful")
+            toast.success("Login Successful");
+            navigate(location?.state ?location.state:"/");
         })
         .catch(err=>{
             console.log(err);

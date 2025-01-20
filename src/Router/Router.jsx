@@ -16,6 +16,7 @@ import RequestedProperties from "../Pages/Dashboard/RightSideContent/AgentRoutes
 import ManagePropertis from "../Pages/Dashboard/RightSideContent/AdminRoutes/ManagePropertise/ManagePropertise";
 import ManageUsers from "../Pages/Dashboard/RightSideContent/AdminRoutes/ManageUsers/ManageUsers";
 import ManageReviews from "../Pages/Dashboard/RightSideContent/AdminRoutes/ManageReviews/ManageReviews";
+import PrivateRoutes from "../Components/PrivateRoutes/PrivateRoutes";
 
 
 const Router = createBrowserRouter([
@@ -29,7 +30,7 @@ const Router = createBrowserRouter([
             },
             {
                 path:'/allProperties',
-                element:<AllProperties></AllProperties>
+                element:<PrivateRoutes><AllProperties></AllProperties></PrivateRoutes>
             },
             {
                 path:'/login',
@@ -43,7 +44,7 @@ const Router = createBrowserRouter([
     },
     {
         path:'dashboard',
-        element:<Dashboard></Dashboard>,
+        element:<PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
         children:[
             {
                 path:'myProfile',
