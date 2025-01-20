@@ -17,6 +17,8 @@ import ManagePropertis from "../Pages/Dashboard/RightSideContent/AdminRoutes/Man
 import ManageUsers from "../Pages/Dashboard/RightSideContent/AdminRoutes/ManageUsers/ManageUsers";
 import ManageReviews from "../Pages/Dashboard/RightSideContent/AdminRoutes/ManageReviews/ManageReviews";
 import PrivateRoutes from "../Components/PrivateRoutes/PrivateRoutes";
+import AgentRoutes from "../Components/AgentRoutes/AgentRoutes";
+import AdminRoutes from "../Components/AdminRoutes/AdminRoutes";
 
 
 const Router = createBrowserRouter([
@@ -64,31 +66,31 @@ const Router = createBrowserRouter([
             },
             {
                 path:'addProperty',
-                element:<AddProperty></AddProperty>
+                element:<AgentRoutes><AddProperty></AddProperty></AgentRoutes>
             },
             {
                 path:'myAddedProperties',
-                element:<AddedProperties></AddedProperties>
+                element:<AgentRoutes><AddedProperties></AddedProperties></AgentRoutes>
             },
             {
                 path:'soldProperties',
-                element:<SoldProperties></SoldProperties>
+                element:<AgentRoutes><SoldProperties></SoldProperties></AgentRoutes>
             },
             {
                 path:'requestedProperties',
-                element:<RequestedProperties></RequestedProperties>
+                element:<AgentRoutes><RequestedProperties></RequestedProperties></AgentRoutes>
             },
             {
                 path:'manageProperties',
-                element:<ManagePropertis></ManagePropertis>
+                element:<AdminRoutes><ManagePropertis></ManagePropertis></AdminRoutes>
             },
             {
                 path:'manageUsers',
-                element:<ManageUsers></ManageUsers>
+                element:<AdminRoutes><ManageUsers></ManageUsers></AdminRoutes>
             },
             {
                 path:'manageReviews',
-                element:<ManageReviews></ManageReviews>
+                element:<AdminRoutes><ManageReviews></ManageReviews></AdminRoutes>
             }
 
         ]

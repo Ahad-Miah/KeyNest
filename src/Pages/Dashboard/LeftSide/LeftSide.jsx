@@ -13,7 +13,7 @@ import { CiSquareQuestion } from "react-icons/ci";
 import { MdOutlineManageHistory } from "react-icons/md";
 import { MdManageAccounts } from "react-icons/md";
 import { MdOutlineRateReview } from "react-icons/md";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import  { AuthContext } from '../../../Provider/AuthProvider/AuthProvider';
 import axios from 'axios';
@@ -32,120 +32,167 @@ const LeftSide = () => {
     return data.role;
   },
     })
-    console.log(role);
+    // console.log(role);
   
 
         
 
     const userLinks = <>
-        <Link to='/dashboard/myProfile'><li className="flex items-center text-blue-600 font-medium bg-blue-100 p-2 rounded-lg">
+        <NavLink
+         className={({ isActive }) =>
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+        to='/dashboard/myProfile'><li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <FaUserFriends className="mr-3 text-lg" />
             My Profile
-        </li></Link>
-        <Link to='/dashboard/wishList'>
+        </li></NavLink>
+        <NavLink
+         className={({ isActive }) =>
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+        to='/dashboard/wishList'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <BsHeart className="mr-3 text-lg" />
             WishList
         </li>
-        </Link>
-        <Link to='/dashboard/propertyBrought'>
+        </NavLink>
+        <NavLink
+         className={({ isActive }) =>
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+        to='/dashboard/propertyBrought'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <BsBuildings className="mr-3 text-lg" />
             Property Brought
         </li>
-        </Link>
-        <Link to='/dashboard/reviews'>
+        </NavLink>
+        <NavLink
+         className={({ isActive }) =>
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+        to='/dashboard/reviews'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <MdOutlineReviews className="mr-3 text-lg" />
             My Reviews
         </li>
-        </Link>
+        </NavLink>
     </>
     const agentLinks = <>
-        <Link to='/dashboard/myProfile'>
+        <NavLink
+        className={({ isActive }) =>
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+        to='/dashboard/myProfile'>
         <li className="flex items-center text-blue-600 font-medium bg-blue-100 p-2 rounded-lg">
             <FaUserFriends className="mr-3 text-lg" />
             My Profile
         </li>
-        </Link>
-        <Link to='/dashboard/addProperty'>
+        </NavLink>
+        <NavLink 
+        className={({ isActive }) =>
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+        to='/dashboard/addProperty'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <IoMdAdd className="mr-3 text-lg" />
             Add Property
         </li>
-        </Link>
-       <Link to='/dashboard/myAddedProperties'>
+        </NavLink>
+       <NavLink
+       className={({ isActive }) =>
+        isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+       to='/dashboard/myAddedProperties'>
        <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <TbBuildingCommunity className="mr-3 text-lg" />
             My Added properties
         </li>
-       </Link>
-        <Link to='/dashboard/soldProperties'>
+       </NavLink>
+        <NavLink
+        className={({ isActive }) =>
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+        to='/dashboard/soldProperties'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <GrMoney className="mr-3 text-lg" />
             My Sold Properties
         </li>
-        </Link>
-        <Link to='/dashboard/requestedProperties'>
+        </NavLink>
+        <NavLink
+        className={({ isActive }) =>
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+        to='/dashboard/requestedProperties'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
         <CiSquareQuestion  className="mr-3 text-lg" />
             Requested Properties
         </li>
-        </Link>
+        </NavLink>
     </>
 
     const adminLinks=<>
-        <Link to='/dashboard/myProfile'>
+        <NavLink 
+         className={({ isActive }) =>
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+        to='/dashboard/myProfile'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <FaUserFriends className="mr-3 text-lg" />
            My profile
         </li>
-        </Link>
-       <Link to='/dashboard/manageProperties'>
+        </NavLink>
+       <NavLink 
+       className={({ isActive }) =>
+        isActive ? " flex items-center text-blue-600 font-medium bg-blue-100  rounded-lg" : ""}
+       to='/dashboard/manageProperties'>
        <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <MdOutlineManageHistory className="mr-3 text-lg" />
             Manage Properties
         </li>
-       </Link>
-        <Link to='/dashboard/manageUsers'>
+       </NavLink>
+        <NavLink 
+        className={({ isActive }) =>
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100  rounded-lg" : ""}
+        to='/dashboard/manageUsers'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <MdManageAccounts className="mr-3 text-lg" />
             Manage Users
         </li>
-        </Link>
-        <Link to='/dashboard/manageReviews'>
+        </NavLink>
+        <NavLink 
+        className={({ isActive }) =>
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100  rounded-lg" : ""}
+        to='/dashboard/manageReviews'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <MdOutlineRateReview className="mr-3 text-lg" />
             Manage Reviews
         </li>
-        </Link>
+        </NavLink>
     </>
     return (
-        <div className="bg-white  shadow-xl flex flex-col p-4 border border-base-300 rounded-lg">
+        <div className="bg-white min-h-screen  shadow-xl flex flex-col p-4 border border-base-300 rounded-lg">
             {/* Brand Section */}
             <div className="flex items-center justify-between mb-6">
                 <h1 className="text-xl font-bold text-[#C82021]">KeyNest™</h1>
                 <Link to='/'> <FaArrowLeft className="text-xl text-gray-600 cursor-pointer" title='Back To Home' /></Link>
             </div>
-            {/* Main Menu */}
-            <div className="mb-6">
-                <h3 className="text-sm text-gray-500 font-semibold mb-3">User Menu</h3>
-                <ul className="space-y-2">
-                    {userLinks}
-                </ul>
-            </div>
-            <div className="mb-6">
+            {/* user Menu */}
+           {
+            role==="customer" &&  <div className="mb-6">
+            <h3 className="text-sm text-gray-500 font-semibold mb-3">User Menu</h3>
+            <ul className="space-y-2">
+                {userLinks}
+            </ul>
+        </div>
+           }
+            {/* agent menu */}
+            {
+                role==="agent" && <div className="mb-6">
                 <h3 className="text-sm text-gray-500 font-semibold mb-3">Agent Menu</h3>
                 <ul className="space-y-2">
                     {agentLinks}
                 </ul>
             </div>
-            <div className="mb-6">
-                <h3 className="text-sm text-gray-500 font-semibold mb-3">Admin Menu</h3>
-                <ul className="space-y-2">
-                    {adminLinks}
-                </ul>
-            </div>
+            }
+            {/* admin menu */}
+           {
+            role==="admin" &&  <div className="mb-6">
+            <h3 className="text-sm text-gray-500 font-semibold mb-3">Admin Menu</h3>
+            <ul className="space-y-2">
+                {adminLinks}
+            </ul>
+        </div>
+           }
 
             {/* Department Section */}
             {/* Other Section */}
