@@ -54,11 +54,11 @@ const AuthProvider = ({ children }) => {
             console.log(currentUser);
             setUser(currentUser);
             setLoading(false);
-            await axios.post(`${import.meta.env.VITE_API_URL}users/${currentUser.email}`,
+            await axios.post(`${import.meta.env.VITE_API_URL}users/${currentUser?.email}`,
                 {
-                    name: currentUser.displayName,
-                    email: currentUser.email,
-                    image: currentUser.photoURL,
+                    name: currentUser?.displayName,
+                    email: currentUser?.email,
+                    image: currentUser?.photoURL,
                     role: "customer"
                 })
         })
