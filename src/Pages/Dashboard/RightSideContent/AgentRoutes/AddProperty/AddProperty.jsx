@@ -61,11 +61,11 @@ const AddProperty = () => {
       title, location,description, agentName,agentImage:user?.photoURL,
       agentEmail, price,image:uploadedImageUrl,verificationStatus:"pending"
     }
-    console.log(propertyInfo)
+    // console.log(propertyInfo)
 
     axios.post(`${import.meta.env.VITE_API_URL}add-property`,propertyInfo)
     .then(result=>{
-      console.log(result);
+      // console.log(result);
         if(result.data.insertedId){
             form.reset();
             toast.success("Added Successfully");
@@ -104,7 +104,7 @@ const AddProperty = () => {
         </div>
         {/* description */}
         <div className="mb-4">
-          <label htmlFor="property-title" className="block font-medium mb-2">Property Title</label>
+          <label htmlFor="property-title" className="block font-medium mb-2">Property Description</label>
           <textarea
             id="property-title"
             name="description"

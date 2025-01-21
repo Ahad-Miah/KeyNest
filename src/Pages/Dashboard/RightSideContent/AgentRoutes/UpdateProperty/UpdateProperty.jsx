@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AiOutlineUpload } from 'react-icons/ai';
 import { AuthContext } from '../../../../../Provider/AuthProvider/AuthProvider';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
@@ -10,6 +10,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 const UpdateProperty = () => {
     const [uploadedImageUrl, setUploadedImageUrl] = useState("");
+    const navigate=useNavigate();
 
     const {user}=useContext(AuthContext);
 
@@ -67,15 +68,15 @@ const UpdateProperty = () => {
         agentEmail, price,image:uploadedImageUrl,
       }
 
-      console.log(propertyInfo);
+      // console.log(propertyInfo);
 
       axios.put(`${import.meta.env.VITE_API_URL}property/${singleProperty._id}`,propertyInfo)
         .then(result=>{
             form.reset();
             if(result.data.acknowledged){
                 toast.success("Updated Successfully");
-                console.log(result.data);
-                // navigate('/myTutorials')
+                // console.log(result.data);
+                navigate('/dashboard/myAddedProperties')
 
             }
         });
@@ -114,7 +115,7 @@ const UpdateProperty = () => {
                 </div>
                 {/* description */}
                 <div className="mb-4">
-                  <label htmlFor="property-title" className="block font-medium mb-2">Property Title</label>
+                  <label htmlFor="property-title" className="block font-medium mb-2">Property Description</label>
                   <textarea
                     id="property-title"
                     name="description"
