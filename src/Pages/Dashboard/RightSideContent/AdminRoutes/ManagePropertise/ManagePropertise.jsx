@@ -17,8 +17,6 @@ const ManagePropertise = () => {
   // console.log(properties);
 
   const handleStatus=(id,status)=>{
-    console.log(id);
-    console.log(status);
     axios.patch(`${import.meta.env.VITE_API_URL}updateStatus/${id}?status=${status}`)
     .then(result=>{
       if(result.data.acknowledged){

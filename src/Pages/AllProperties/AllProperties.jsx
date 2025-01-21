@@ -1,41 +1,17 @@
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import React from "react";
 import { FaCheckCircle, FaRegCircle } from "react-icons/fa";
 
 const AllProperties = () => {
-    const properties = [
-        {
-            id: 1,
-            image: "https://via.placeholder.com/300x200",
-            title: "Luxury Villa in Beverly Hills",
-            location: "Beverly Hills, California",
-            agentName: "John Doe",
-            agentImage:
-                "https://via.placeholder.com/50",
-            verified: true,
-            price: "$2,500,000",
-        },
-        {
-            id: 2,
-            image: "https://via.placeholder.com/300x200",
-            title: "Modern Apartment in New York",
-            location: "Manhattan, New York",
-            agentName: "Jane Smith",
-            agentImage: "https://via.placeholder.com/50",
-            verified: false,
-            price: "$1,200,000",
-        },
-        {
-            id: 3,
-            image: "https://via.placeholder.com/300x200",
-            title: "Beach House in Malibu",
-            location: "Malibu, California",
-            agentName: "Emily Johnson",
-            agentImage: "https://via.placeholder.com/50",
-            verified: true,
-            price: "$3,800,000",
-        },
-    ];
 
+    const { data: properties ,refetch} = useQuery({
+        queryKey: ['properties'],
+        queryFn: async () => {
+          const { data } = await axios.get(`${import.meta.env.VITE_API_URL}verifiedProperties`)
+          return data;
+        },
+      })
     return (
         <section className="py-12 bg-gray-50">
             <div className="mx-auto px-6 lg:px-8">
@@ -51,19 +27,19 @@ const AllProperties = () => {
 
                 {/* Properties Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {properties.map((property) => (
+                    {properties?.map((property) => (
                         <div
-                            key={property.id}
+                            key={property._id}
                             className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 group"
                         >
                             {/* Property Image */}
                             <div className="relative">
                                 <img
-                                    src={property.image}
-                                    alt={property.title}
+                                    src={property?.image}
+                                    alt={property?.title}
                                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                                 />
-                                {property.verified && (
+                                {property?.verificationStatus==="verified"&& (
                                     <div
                                         className="absolute top-3 right-3 bg-green-100 text-green-600 text-sm font-bold px-2 py-1 rounded-full flex items-center"
                                         data-tooltip="Verified Property"
@@ -77,18 +53,18 @@ const AllProperties = () => {
                             {/* Property Details */}
                             <div className="p-4">
                                 <h3 className="text-lg font-semibold text-gray-800 mb-1">
-                                    {property.title}
+                                    {property?.title}
                                 </h3>
-                                <p className="text-gray-600 text-sm mb-3">{property.location}</p>
+                                <p className="text-gray-600 text-sm mb-3">{property?.location}</p>
                                 <div className="flex items-center mb-3">
                                     <img
-                                        src={property.agentImage}
-                                        alt={property.agentName}
+                                        src={property?.agentImage}
+                                        alt={property?.agentName}
                                         className="w-8 h-8 rounded-full mr-2"
                                     />
-                                    <span className="text-gray-800 text-sm">{property.agentName}</span>
+                                    <span className="text-gray-800 text-sm">{property?.agentName}</span>
                                 </div>
-                                <p className="text-lg font-bold text-blue-600">{property.price}</p>
+                                <p className="text-lg font-bold text-blue-600">Price Range : {property?.price?.minPrice} - {property?.price?.maxPrice}</p>
                             </div>
 
                             {/* Details Button */}
