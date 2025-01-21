@@ -59,7 +59,7 @@ const AddProperty = () => {
 
     const propertyInfo = {
       title, location,description, agentName,agentImage:user?.photoURL,
-      agentEmail, price,image:uploadedImageUrl
+      agentEmail, price,image:uploadedImageUrl,verificationStatus:"pending"
     }
     console.log(propertyInfo)
 

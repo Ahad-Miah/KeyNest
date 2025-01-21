@@ -21,7 +21,7 @@ import axios from 'axios';
 
 const LeftSide = () => {
     const{user}=useContext(AuthContext);
-    console.log(user?.email);
+    // console.log(user?.email);
 
     // const [role,setRole]=useState();
 

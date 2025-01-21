@@ -3,6 +3,7 @@ import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai';
 import { AuthContext } from '../../../../../Provider/AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const AddedProperties = () => {
     const {user}=useContext(AuthContext);
@@ -13,7 +14,7 @@ const AddedProperties = () => {
       return data;
     },
   })
-  console.log(properties);
+  // console.log(properties);
   // const properties = [
   //   {
   //     id: 1,
@@ -34,7 +35,7 @@ const AddedProperties = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {properties?.map((property) => (
           <div
-            key={property?.id}
+            key={property?._id}
             className="border border-gray-200 rounded-lg shadow-lg overflow-hidden bg-white hover:shadow-2xl transition-shadow duration-300"
           >
             <img
@@ -66,15 +67,17 @@ const AddedProperties = () => {
                       : 'text-red-500'
                   }`}
               >
-                Verification Status: {property?.verificationStatus}
+                Verification Status: <span className='badge badge-secondary'>{property?.verificationStatus}</span>
               </p>
               <div className="flex justify-between items-center">
                 {property?.verificationStatus !== 'rejected' && (
+                  <Link to={`/dashboard/updateProperties/${property?._id}`}>
                   <button
                     className="flex items-center px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-md hover:bg-blue-600 transition-colors duration-300"
                   >
                     <AiOutlineEdit className="mr-2" /> Update
                   </button>
+                  </Link>
                 )}
                 <button
                   className="flex items-center px-4 py-2 bg-red-500 text-white text-sm font-medium rounded-md hover:bg-red-600 transition-colors duration-300"

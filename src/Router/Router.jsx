@@ -19,6 +19,7 @@ import ManageReviews from "../Pages/Dashboard/RightSideContent/AdminRoutes/Manag
 import PrivateRoutes from "../Components/PrivateRoutes/PrivateRoutes";
 import AgentRoutes from "../Components/AgentRoutes/AgentRoutes";
 import AdminRoutes from "../Components/AdminRoutes/AdminRoutes";
+import UpdateProperty from "../Pages/Dashboard/RightSideContent/AgentRoutes/UpdateProperty/UpdateProperty";
 
 
 const Router = createBrowserRouter([
@@ -79,6 +80,11 @@ const Router = createBrowserRouter([
             {
                 path:'requestedProperties',
                 element:<AgentRoutes><RequestedProperties></RequestedProperties></AgentRoutes>
+            },
+            {
+                path:'updateProperties/:id',
+                element:<UpdateProperty></UpdateProperty>,
+                loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}property/${params.id}`)
             },
             {
                 path:'manageProperties',
