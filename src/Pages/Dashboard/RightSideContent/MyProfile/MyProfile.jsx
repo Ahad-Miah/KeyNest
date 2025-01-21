@@ -46,7 +46,7 @@ const MyProfile = () => {
           <h1 className="text-3xl font-bold text-gray-800 mb-2">{user?.displayName}</h1>
           {
             role==="customer" ||<p className="text-gray-600 text-lg mb-6">
-            Role: <span className="text-blue-500 font-semibold">{role}</span>
+            Role: <span className={`${role==="fraud"?"text-red-700 font-bold badge bg-base-300":"text-blue-500 font-bold badge bg-base-300"} `}>{role}</span>
           </p>
           }
 

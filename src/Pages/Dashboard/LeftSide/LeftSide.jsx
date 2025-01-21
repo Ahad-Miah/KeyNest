@@ -193,6 +193,17 @@ const LeftSide = () => {
             </ul>
         </div>
            }
+           {
+            role==="fraud" &&  <NavLink
+            className={({ isActive }) =>
+                isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+            to='/dashboard/myProfile'>
+            <li className="flex items-center text-blue-600 font-medium bg-blue-100 p-2 rounded-lg">
+                <FaUserFriends className="mr-3 text-lg" />
+                My Profile
+            </li>
+            </NavLink>
+           }
 
             {/* Department Section */}
             {/* Other Section */}

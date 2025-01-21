@@ -15,16 +15,6 @@ const ManagePropertise = () => {
     },
   })
   // console.log(properties);
-  const handleVerify=(id)=>{
-      console.log(id);
-      axios.patch(`${import.meta.env.VITE_API_URL}updateStatus/${id}`)
-      .then(result=>{
-        if(result.data.acknowledged){
-          toast.success("Verified Successfully");
-      }
-      refetch();
-      })
-  }
 
   const handleStatus=(id,status)=>{
     console.log(id);

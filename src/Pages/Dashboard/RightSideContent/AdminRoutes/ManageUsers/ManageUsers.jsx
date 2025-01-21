@@ -1,23 +1,70 @@
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import React from 'react';
 import { AiOutlineUser, AiOutlineDelete, AiOutlineExclamationCircle } from 'react-icons/ai';
+import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const ManageUsers = () => {
 
-    const users = [
-        {
-          id: 1,
-          name: 'John Doe',
-          email: 'john.doe@example.com',
-          role: 'user',
-        },
-        {
-          id: 2,
-          name: 'Jane Smith',
-          email: 'jane.smith@example.com',
-          role: 'agent',
-        },
-        // Add more sample users as needed
-      ];
+  const { data: users ,refetch} = useQuery({
+    queryKey: ['users'],
+    queryFn: async () => {
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}users`)
+      return data;
+    },
+  })
+
+      const handleRole=(id,role,email)=>{
+          axios.patch(`${import.meta.env.VITE_API_URL}updateRole/${id}?role=${role}&email=${email}`)
+          .then(result=>{
+                if(result.data.acknowledged){
+                  toast.success(`Updated user role to ${role}`);
+              }
+              refetch();
+              })
+      }
+      const handleDelete=(id)=>{
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+          if (result.isConfirmed) {
+          
+             
+                  Swal.fire({
+                      title: "Deleted!",
+                      text: "Your file has been deleted.",
+                      icon: "success"
+                    });
+                    console.log("deleted",id);
+                 }
+            
+          
+        
+        });
+      }
+
+    // const users = [
+    //     {
+    //       id: 1,
+    //       name: 'John Doe',
+    //       email: 'john.doe@example.com',
+    //       role: 'user',
+    //     },
+    //     {
+    //       id: 2,
+    //       name: 'Jane Smith',
+    //       email: 'jane.smith@example.com',
+    //       role: 'agent',
+    //     },
+    //     // Add more sample users as needed
+    //   ];
   return (
     <div className="max-w-7xl mx-auto my-10 p-4">
       <h1 className="text-2xl font-bold mb-6 text-center">Manage Users</h1>
@@ -31,38 +78,46 @@ const ManageUsers = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
+            {users?.map((user, index) => (
               <tr
                 key={index}
                 className={`$ {
                   index % 2 === 0 ? 'bg-gray-100' : 'bg-white'
                 } hover:bg-gray-200 transition-colors duration-200`}
               >
-                <td className="border px-4 py-2 font-medium">{user.name}</td>
-                <td className="border px-4 py-2">{user.email}</td>
-                <td className="border px-4 py-2 flex space-x-2">
-                  <button
-                    onClick={() => onMakeAdmin(user.id)}
+                <td className="border px-4 py-2 font-medium">{user?.name}</td>
+                <td className="border px-4 py-2">{user?.email}</td>
+                <td className="border px-4 py-2 flex items-center justify-center space-x-2">
+
+                  {
+                    user.role==='fraud'?<span className='badge badge-secondary p-3 font-semibold bg-green-600 text-center'>Fraud</span>
+                    :<>
+                    <button
+                    onClick={()=>handleRole(user?._id,"admin")}
                     className="flex items-center px-3 py-2 bg-blue-500 text-white text-sm font-medium rounded-md hover:bg-blue-600 transition-colors duration-300"
                   >
                     <AiOutlineUser className="mr-2" /> Make Admin
                   </button>
                   <button
-                    onClick={() => onMakeAgent(user.id)}
+                  disabled={user?.role==="admin"}
+                  onClick={()=>handleRole(user?._id,"agent")}
                     className="flex items-center px-3 py-2 bg-purple-500 text-white text-sm font-medium rounded-md hover:bg-purple-600 transition-colors duration-300"
                   >
                     <AiOutlineUser className="mr-2" /> Make Agent
                   </button>
                   {user.role === 'agent' && (
                     <button
-                      onClick={() => onMarkFraud(user.id)}
+                    onClick={()=>handleRole(user?._id,"fraud",user?.email)}
                       className="flex items-center px-3 py-2 bg-yellow-500 text-white text-sm font-medium rounded-md hover:bg-yellow-600 transition-colors duration-300"
                     >
                       <AiOutlineExclamationCircle className="mr-2" /> Mark as Fraud
                     </button>
                   )}
+                    </>
+                  }
+                  
                   <button
-                    onClick={() => onDeleteUser(user.id)}
+                  onClick={()=>handleDelete(user?._id)}
                     className="flex items-center px-3 py-2 bg-red-500 text-white text-sm font-medium rounded-md hover:bg-red-600 transition-colors duration-300"
                   >
                     <AiOutlineDelete className="mr-2" /> Delete User
@@ -78,17 +133,3 @@ const ManageUsers = () => {
 };
 
 export default ManageUsers;
-
-// Sample usage
-
-// const handleMakeAdmin = (id) => alert(`Made user with ID: ${id} an admin`);
-// const handleMakeAgent = (id) => alert(`Made user with ID: ${id} an agent`);
-// const handleMarkFraud = (id) => alert(`Marked user with ID: ${id} as fraud`);
-// const handleDeleteUser = (id) => alert(`Deleted user with ID: ${id}`);
-// <ManageUsers
-//   users={sampleUsers}
-//   onMakeAdmin={handleMakeAdmin}
-//   onMakeAgent={handleMakeAgent}
-//   onMarkFraud={handleMarkFraud}
-//   onDeleteUser={handleDeleteUser}
-// />
