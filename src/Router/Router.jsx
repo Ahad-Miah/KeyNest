@@ -20,8 +20,7 @@ import PrivateRoutes from "../Components/PrivateRoutes/PrivateRoutes";
 import AgentRoutes from "../Components/AgentRoutes/AgentRoutes";
 import AdminRoutes from "../Components/AdminRoutes/AdminRoutes";
 import UpdateProperty from "../Pages/Dashboard/RightSideContent/AgentRoutes/UpdateProperty/UpdateProperty";
-
-
+import Details from "../Pages/Details/Details";
 const Router = createBrowserRouter([
     {
         path:'/',
@@ -42,7 +41,12 @@ const Router = createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
-            }
+            },
+            {
+                path:'/details/:id',
+                element:<PrivateRoutes><Details></Details></PrivateRoutes>,
+                loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}property/${params.id}`)
+            },
         ]
     },
     {
@@ -83,7 +87,7 @@ const Router = createBrowserRouter([
             },
             {
                 path:'updateProperties/:id',
-                element:<UpdateProperty></UpdateProperty>,
+                element:<AgentRoutes><UpdateProperty></UpdateProperty></AgentRoutes>,
                 loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}property/${params.id}`)
             },
             {
