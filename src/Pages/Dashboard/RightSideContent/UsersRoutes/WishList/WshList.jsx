@@ -3,6 +3,8 @@ import { FaCheckCircle, FaTrashAlt } from 'react-icons/fa';
 import { AuthContext } from '../../../../../Provider/AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 
 const Wishlist = () => {
@@ -58,10 +60,32 @@ const Wishlist = () => {
       return data;
     },
   })
-  const handleRemove = (id) => {
-    setWishlist(wishlist.filter(property => property.id !== id));
-  };
-
+  const handleDelete=(id)=>{
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`${import.meta.env.VITE_API_URL}wishlist/${id}`)
+         .then(result=>{
+          if(result.data.deletedCount){
+              Swal.fire({
+                  title: "Deleted!",
+                  text: "Your file has been deleted.",
+                  icon: "success"
+                });
+                refetch();
+             }
+         }); 
+      }
+    
+    });
+  }
   return (
     <div className="bg-gray-100  py-12 px-4 sm:px-6 lg:px-8">
       <div className=" mx-auto">
@@ -101,11 +125,13 @@ const Wishlist = () => {
                 <p className="text-lg font-semibold text-green-600">Price Range: {property?.price?.minPrice} - {property?.price?.minPrice}</p>
               </div>
               <div className="flex space-x-3 mt-4 mr-4">
+                  <Link to={`/dashboard/offerForm/${property?._id}`}>
                   <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300">
                     Make an Offer
                   </button>
+                  </Link>
                   <button
-                    onClick={() => handleRemove(property.id)}
+                    onClick={() => handleDelete(property?._id)}
                     className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-300"
                   >
                     <FaTrashAlt />

@@ -21,6 +21,7 @@ import AgentRoutes from "../Components/AgentRoutes/AgentRoutes";
 import AdminRoutes from "../Components/AdminRoutes/AdminRoutes";
 import UpdateProperty from "../Pages/Dashboard/RightSideContent/AgentRoutes/UpdateProperty/UpdateProperty";
 import Details from "../Pages/Details/Details";
+import OfferForm from "../Pages/Dashboard/RightSideContent/UsersRoutes/offerForm/OfferForm";
 const Router = createBrowserRouter([
     {
         path:'/',
@@ -60,6 +61,11 @@ const Router = createBrowserRouter([
             {
                 path:'wishList',
                 element:<Wishlist></Wishlist>
+            },
+            {
+                path:'offerForm/:id',
+                element:<PrivateRoutes><OfferForm></OfferForm></PrivateRoutes>,
+                loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}singleWishlist/${params.id}`)
             },
             {
                 path:'propertyBrought',
