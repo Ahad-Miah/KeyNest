@@ -34,10 +34,12 @@ return data.role;
         const buyerEmail=form.buyerEmail.value;
         const buyerName=form.buyerName.value;
         const propertyId=property?.propertyId;
+        const propertyImage=property?.
+        propertyImage;
         const offerPrice=offerAmount;
 
         const offerInfo={
-            propertyTitle,propertyLocation,agentEmail,buyerEmail,buyerName,propertyId,agentName,offerPrice
+            propertyTitle,propertyLocation,agentEmail,buyerEmail,buyerName,propertyId,agentName,offerPrice,propertyImage,status:"pending"
         }
         axios.post(`${import.meta.env.VITE_API_URL}requested`,offerInfo)
     .then(result=>{
