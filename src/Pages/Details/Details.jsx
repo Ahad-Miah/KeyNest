@@ -71,6 +71,7 @@ const now = new Date();
         reviewDescription:reviewText,
         userEmail:user?.email,
         userName:user?.displayName,
+        userImage:user?.photoURL,
         propertyId:property?._id
     }
     console.log(reviewInfo);
