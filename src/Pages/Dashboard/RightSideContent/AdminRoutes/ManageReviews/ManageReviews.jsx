@@ -14,7 +14,6 @@ const ManageReviews = () => {
         },
       })
 
-
       const handleDelete=(id)=>{
         Swal.fire({
           title: "Are you sure?",
@@ -48,7 +47,7 @@ const ManageReviews = () => {
         {reviews?.map((review, index) => (
           <div
             key={index}
-            className="bg-white shadow-lg rounded-lg p-4 border border-gray-300 hover:shadow-xl transition-shadow duration-300"
+            className="bg-white flex flex-col shadow-lg rounded-lg p-4 border border-gray-300 hover:shadow-xl transition-shadow duration-300"
           >
             <div className="flex items-center mb-4">
               <img
@@ -61,7 +60,7 @@ const ManageReviews = () => {
                 <p className="text-sm text-gray-600">{review?.userEmail}</p>
               </div>
             </div>
-            <p className="text-gray-700 mb-4">{review?.reviewDescription}</p>
+            <p className="text-gray-700 flex-grow mb-4">{review?.reviewDescription}</p>
             <button
               onClick={() => handleDelete(review?._id)}
               className="flex items-center justify-center w-full px-4 py-2 bg-red-500 text-white text-sm font-medium rounded-md hover:bg-red-600 transition-colors duration-300"

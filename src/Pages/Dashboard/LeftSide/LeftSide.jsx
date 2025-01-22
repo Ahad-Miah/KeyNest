@@ -78,7 +78,7 @@ const LeftSide = () => {
         className={({ isActive }) =>
             isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
         to='/dashboard/myProfile'>
-        <li className="flex items-center text-blue-600 font-medium bg-blue-100 p-2 rounded-lg">
+        <li className="flex items-center  font-medium  p-2 rounded-lg">
             <FaUserFriends className="mr-3 text-lg" />
             My Profile
         </li>

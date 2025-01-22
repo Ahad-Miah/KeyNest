@@ -28,6 +28,9 @@ const RequestedProperties = () => {
                   });
 
       }
+      if(offers?.length==0){
+        return <div className='text-2xl font-bold flex items-center text-center justify-center'>No Requested Property.</div>
+      }
 
   return (
     <div className="mx-auto my-10 p-4">

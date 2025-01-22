@@ -118,7 +118,7 @@ return data.role;
           <input
             type="number"
             value={offerAmount}
-            onChange={(e) => setOfferAmount(e.target.value)}
+            onChange={(e) => setOfferAmount(parseFloat(e.target.value))}
             className={`w-full border rounded-lg p-2 ${
               isOfferValid ? 'border-gray-300' : 'border-red-500'
             } focus:outline-none focus:ring-2 focus:ring-indigo-500`}

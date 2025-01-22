@@ -71,8 +71,8 @@ const AddedProperties = () => {
               alt={property?.title}
               className="w-full h-48 object-cover"
             />
-            <div className="p-4">
-              <h2 className="text-lg font-semibold mb-2">{property?.title.slice(0,25)}...</h2>
+            <div className="p-4 flex flex-col">
+              <h2 className="text-lg font-semibold mb-2">{property?.title.slice(0,22)}...</h2>
               <p className="text-gray-600 mb-2">
                 <span className="font-medium">Location:</span> {property?.location}
               </p>
@@ -84,7 +84,7 @@ const AddedProperties = () => {
                 />
                 <p className="text-gray-600">{property.agentName}</p>
               </div>
-              <p className="text-gray-600 mb-2">
+              <p className="text-gray-600 h-12 mb-2">
                 <span className="font-medium">Price Range:</span> ${property?.price?.minPrice} - ${property?.price?.maxPrice}
               </p>
               <p
