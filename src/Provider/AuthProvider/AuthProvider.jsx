@@ -54,6 +54,7 @@ const AuthProvider = ({ children }) => {
             console.log(currentUser);
             setUser(currentUser);
             setLoading(false);
+           if(currentUser.email){
             await axios.post(`${import.meta.env.VITE_API_URL}users/${currentUser?.email}`,
                 {
                     name: currentUser?.displayName,
@@ -61,6 +62,7 @@ const AuthProvider = ({ children }) => {
                     image: currentUser?.photoURL,
                     role: "customer"
                 })
+           }
         })
 
         return () => {

@@ -74,7 +74,6 @@ const now = new Date();
         userImage:user?.photoURL,
         propertyId:property?._id
     }
-    console.log(reviewInfo);
     axios.post(`${import.meta.env.VITE_API_URL}reviews`,reviewInfo)
     .then(result=>{
       // console.log(result);

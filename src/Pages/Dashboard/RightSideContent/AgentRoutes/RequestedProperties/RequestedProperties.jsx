@@ -1,18 +1,34 @@
-import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useContext } from 'react';
 import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
+import { AuthContext } from '../../../../../Provider/AuthProvider/AuthProvider';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const RequestedProperties = () => {
-    const offers = [
-        {
-          id: 1,
-          title: 'Luxury Apartment',
-          location: 'Downtown, NY',
-          buyerName: 'Jane Smith',
-          buyerEmail: 'jane.smith@example.com',
-          offeredPrice: 550000,
-        },
-        // Add more sample offers as needed
-      ];
+
+  const {user}=useContext(AuthContext);
+  const { data: offers ,refetch} = useQuery({
+    queryKey: ['offers',user?.email],
+    queryFn: async () => {
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}requested/${user?.email}`)
+      return data;
+    },
+  })
+
+      const handleStatus=(id,status,propertyId)=>{
+          // console.log(id);
+          // console.log(status);
+          axios.patch(`${import.meta.env.VITE_API_URL}updateOfferStatus/${id}?status=${status}&propertyId=${propertyId}`)
+          .then(result=>{
+                      if(result.data.acknowledged){
+                          toast.success(`Property ${status}ed`);
+                      }
+                      refetch();
+                  });
+
+      }
+
   return (
     <div className="mx-auto my-10 p-4">
       <h1 className="text-2xl font-bold mb-6 text-center">Requested/Offered Properties</h1>
@@ -29,31 +45,36 @@ const RequestedProperties = () => {
             </tr>
           </thead>
           <tbody>
-            {offers.map((offer, index) => (
+            {offers?.map((offer, index) => (
               <tr
                 key={index}
                 className={`$ {
                   index % 2 === 0 ? 'bg-gray-100' : 'bg-white'
                 } hover:bg-gray-200 transition-colors duration-200`}
               >
-                <td className="border px-4 py-2 font-medium">{offer.title}</td>
-                <td className="border px-4 py-2">{offer.location}</td>
-                <td className="border px-4 py-2">{offer.buyerName}</td>
-                <td className="border px-4 py-2">{offer.buyerEmail}</td>
-                <td className="border px-4 py-2 text-blue-500 font-semibold">${offer.offeredPrice}</td>
+                <td className="border px-4 py-2 font-medium">{offer?.propertyTitle}</td>
+                <td className="border px-4 py-2">{offer?.propertyLocation}</td>
+                <td className="border px-4 py-2">{offer?.buyerName}</td>
+                <td className="border px-4 py-2">{offer?.buyerEmail}</td>
+                <td className="border px-4 py-2 text-blue-500 font-semibold">${offer?.offerPrice}</td>
                 <td className="px-4 py-2 flex space-x-2 justify-center items-center mt-1.5">
-                  <button
-                    onClick={() => onAccept(offer.id)}
+                  {
+                   offer?.status==="accepted"?<span className='badge badge-secondary p-3 font-semibold bg-green-600'>Accepted</span>:offer?.status==="rejected"?<span className='badge badge-secondary p-3 font-semibold bg-red-600'>Rejected</span>:
+                   <>
+                   <button
+                    onClick={() => handleStatus(offer?._id,"accept",offer?.propertyId)}
                     className="flex items-center px-3 py-2 bg-green-500 text-white text-sm font-medium rounded-md hover:bg-green-600 transition-colors duration-300"
                   >
                     <AiOutlineCheck className="mr-2" /> Accept
                   </button>
                   <button
-                    onClick={() => onReject(offer.id)}
+                    onClick={() => handleStatus(offer?._id,"reject")}
                     className="flex items-center px-3 py-2 bg-red-500 text-white text-sm font-medium rounded-md hover:bg-red-600 transition-colors duration-300"
                   >
                     <AiOutlineClose className="mr-2" /> Reject
                   </button>
+                   </>
+                  }
                 </td>
               </tr>
             ))}

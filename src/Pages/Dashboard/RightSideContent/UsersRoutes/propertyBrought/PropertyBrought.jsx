@@ -14,7 +14,6 @@ const PropertyBrought = () => {
           return data;
         },
       })
-      console.log(properties);
     // const [properties, setProperties] = useState([
     //     {
     //         id: 1,
