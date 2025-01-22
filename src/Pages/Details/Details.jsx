@@ -19,11 +19,19 @@ const Details = () => {
     })
   const [isModalOpen, setModalOpen] = useState(false);
   const [reviewText, setReviewText] = useState('');
+
+  const { data: reviews ,refetch} = useQuery({
+    queryKey: ['reviews',property?._id],
+    queryFn: async () => {
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}reviews/${property?._id}`)
+      return data;
+    },
+  })
 //   reviews
-const reviews = [
-    { text: 'Amazing property! Would love to stay here.', userName: 'Emily Clark' },
-    { text: 'Breathtaking view and luxurious interiors.', userName: 'Daniel Foster' },
-  ];
+// const reviews = [
+//     { text: 'Amazing property! Would love to stay here.', userName: 'Emily Clark' },
+//     { text: 'Breathtaking view and luxurious interiors.', userName: 'Daniel Foster' },
+//   ];
 
   const handleAddToWishlist=()=>{
     const wishList={
@@ -49,13 +57,34 @@ const reviews = [
 
   console.log(wishList);
 }
+const now = new Date();
 
   const handleAddReview = () => {
-    if (reviewText.trim()) {
-      onAddReview(property.id, reviewText);
-      setReviewText('');
-      setModalOpen(false);
+    if(reviewText===""){
+        toast.error("please add a review");
+        return;
     }
+    const reviewInfo={
+        propertyTitle:property?.title,
+        agentName:property?.agentName,
+        reviewTime:now.toLocaleTimeString(),
+        reviewDescription:reviewText,
+        userEmail:user?.email,
+        userName:user?.displayName,
+        propertyId:property?._id
+    }
+    console.log(reviewInfo);
+    axios.post(`${import.meta.env.VITE_API_URL}reviews`,reviewInfo)
+    .then(result=>{
+      // console.log(result);
+        if(result.data.insertedId){
+            toast.success("Review added Successfully");
+        }
+        refetch();
+    });
+    
+    setReviewText('')
+    setModalOpen(false);
   };
 
   return (
@@ -85,15 +114,15 @@ const reviews = [
 
       <div className="mt-10">
         <h2 className="text-2xl font-bold mb-4 text-gray-800">Reviews</h2>
-        {reviews.length > 0 ? (
+        {reviews?.length > 0 ? (
           <div className="space-y-4">
-            {reviews.map((review, index) => (
+            {reviews?.map((review, index) => (
               <div
                 key={index}
                 className="bg-white shadow-lg rounded-lg p-4 border border-gray-300"
               >
-                <p className="text-gray-700">{review.text}</p>
-                <p className="text-sm text-gray-500 mt-2">- {review.userName}</p>
+                <p className="text-gray-700">{review?.reviewDescription}</p>
+                <p className="text-sm text-gray-500 mt-2">- {review?.userName}</p>
               </div>
             ))}
           </div>
