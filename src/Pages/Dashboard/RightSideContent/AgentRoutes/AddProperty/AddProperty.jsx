@@ -3,6 +3,7 @@ import { AiOutlineUpload } from 'react-icons/ai';
 import { AuthContext } from '../../../../../Provider/AuthProvider/AuthProvider';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const AddProperty = () => {
@@ -62,8 +63,9 @@ const AddProperty = () => {
       agentEmail, price,image:uploadedImageUrl,verificationStatus:"pending"
     }
     // console.log(propertyInfo)
+    const axiosSecure=useAxiosSecure();
 
-    axios.post(`${import.meta.env.VITE_API_URL}add-property`,propertyInfo)
+    axiosSecure.post(`add-property`,propertyInfo)
     .then(result=>{
       // console.log(result);
         if(result.data.insertedId){

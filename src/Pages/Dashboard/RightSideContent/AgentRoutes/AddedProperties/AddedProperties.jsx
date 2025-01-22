@@ -5,13 +5,15 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
 
 const AddedProperties = () => {
     const {user}=useContext(AuthContext);
+    const axiosSecure=useAxiosSecure();
   const { data: properties ,refetch} = useQuery({
     queryKey: ['properties', user?.email],
     queryFn: async () => {
-      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}myProperty/${user?.email}`)
+      const { data } = await axiosSecure.get(`myProperty/${user?.email}`)
       return data;
     },
   })
@@ -27,7 +29,7 @@ const AddedProperties = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`${import.meta.env.VITE_API_URL}property/${id}`)
+        axiosSecure.delete(`property/${id}`)
          .then(result=>{
           if(result.data.deletedCount){
               Swal.fire({

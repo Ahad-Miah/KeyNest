@@ -3,8 +3,10 @@ import axios from 'axios';
 import React from 'react';
 import { AiOutlineDelete } from 'react-icons/ai';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
 
 const ManageReviews = () => {
+  const axiosSecure=useAxiosSecure();
 
       const { data: reviews ,refetch} = useQuery({
         queryKey: ['reviews'],
@@ -25,7 +27,7 @@ const ManageReviews = () => {
           confirmButtonText: "Yes, delete it!"
         }).then((result) => {
           if (result.isConfirmed) {
-            axios.delete(`${import.meta.env.VITE_API_URL}review/${id}`)
+            axiosSecure.delete(`review/${id}`)
              .then(result=>{
               if(result.data.deletedCount){
                   Swal.fire({

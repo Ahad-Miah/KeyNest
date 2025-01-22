@@ -4,19 +4,21 @@ import React from 'react';
 import { AiOutlineUser, AiOutlineDelete, AiOutlineExclamationCircle } from 'react-icons/ai';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
 
 const ManageUsers = () => {
+ const  axiosSecure=useAxiosSecure();
 
   const { data: users ,refetch} = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
-      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}users`)
+      const { data } = await axiosSecure.get(`users`)
       return data;
     },
   })
 
       const handleRole=(id,role,email)=>{
-          axios.patch(`${import.meta.env.VITE_API_URL}updateRole/${id}?role=${role}&email=${email}`)
+        axiosSecure.patch(`updateRole/${id}?role=${role}&email=${email}`)
           .then(result=>{
                 if(result.data.acknowledged){
                   toast.success(`Updated user role to ${role}`);

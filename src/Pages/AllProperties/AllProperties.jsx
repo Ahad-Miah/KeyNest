@@ -3,13 +3,15 @@ import axios from "axios";
 import React from "react";
 import { FaCheckCircle, FaRegCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure/useAxiosSecure";
 
 const AllProperties = () => {
 
+        const axiosSecure=useAxiosSecure();
     const { data: properties ,refetch} = useQuery({
         queryKey: ['properties'],
         queryFn: async () => {
-          const { data } = await axios.get(`${import.meta.env.VITE_API_URL}verifiedProperties`)
+          const { data } = await axiosSecure.get(`verifiedProperties`)
           return data;
         },
       })

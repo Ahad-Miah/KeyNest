@@ -4,6 +4,7 @@ import { AuthContext } from '../../../../../Provider/AuthProvider/AuthProvider';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -15,6 +16,7 @@ const UpdateProperty = () => {
     const {user}=useContext(AuthContext);
 
     const singleProperty=useLoaderData();
+    const axiosSecure=useAxiosSecure();
     // console.log(singleProperty);
 
     const handleImageUpload = async (e) => {
@@ -70,7 +72,7 @@ const UpdateProperty = () => {
 
       // console.log(propertyInfo);
 
-      axios.put(`${import.meta.env.VITE_API_URL}property/${singleProperty._id}`,propertyInfo)
+      axiosSecure.put(`property/${singleProperty._id}`,propertyInfo)
         .then(result=>{
             form.reset();
             if(result.data.acknowledged){

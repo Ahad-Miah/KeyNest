@@ -4,6 +4,7 @@ import { AuthContext } from '../../../../../Provider/AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
 
 const ReviewsPage = () => {
   // const [reviews, setReviews] = useState([
@@ -23,11 +24,12 @@ const ReviewsPage = () => {
   //   },
   // ]);
 
+  const axiosSecure=useAxiosSecure()
     const {user}=useContext(AuthContext);
   const { data: reviews ,refetch} = useQuery({
     queryKey: ['reviews',user?.email],
     queryFn: async () => {
-      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}userReviews/${user?.email}`)
+      const { data } = await axiosSecure.get(`userReviews/${user?.email}`)
       return data;
     },
   })
@@ -42,7 +44,7 @@ const ReviewsPage = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`${import.meta.env.VITE_API_URL}review/${id}`)
+        axiosSecure.delete(`review/${id}`)
          .then(result=>{
           if(result.data.deletedCount){
               Swal.fire({

@@ -5,9 +5,11 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
 
 
 const Wishlist = () => {
+  const axiosSecure=useAxiosSecure();
 
   // const [wishlist, setWishlist] = useState([
   //   {
@@ -56,7 +58,7 @@ const Wishlist = () => {
   const { data: wishlist, refetch } = useQuery({
     queryKey: ['wishlist', user?.email],
     queryFn: async () => {
-      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}wishlist/${user?.email}`)
+      const { data } = await axiosSecure.get(`wishlist/${user?.email}`)
       return data;
     },
   })
@@ -71,7 +73,7 @@ const Wishlist = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`${import.meta.env.VITE_API_URL}wishlist/${id}`)
+        axiosSecure.delete(`wishlist/${id}`)
          .then(result=>{
           if(result.data.deletedCount){
               Swal.fire({

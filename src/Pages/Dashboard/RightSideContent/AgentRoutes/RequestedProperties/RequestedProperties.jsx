@@ -4,14 +4,17 @@ import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
 import { AuthContext } from '../../../../../Provider/AuthProvider/AuthProvider';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
 
 const RequestedProperties = () => {
+
+  const axiosSecure=useAxiosSecure();
 
   const {user}=useContext(AuthContext);
   const { data: offers ,refetch} = useQuery({
     queryKey: ['offers',user?.email],
     queryFn: async () => {
-      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}requested/${user?.email}`)
+      const { data } = await axiosSecure.get(`requested/${user?.email}`)
       return data;
     },
   })
@@ -19,7 +22,7 @@ const RequestedProperties = () => {
       const handleStatus=(id,status,propertyId)=>{
           // console.log(id);
           // console.log(status);
-          axios.patch(`${import.meta.env.VITE_API_URL}updateOfferStatus/${id}?status=${status}&propertyId=${propertyId}`)
+          axiosSecure.patch(`updateOfferStatus/${id}?status=${status}&propertyId=${propertyId}`)
           .then(result=>{
                       if(result.data.acknowledged){
                           toast.success(`Property ${status}ed`);

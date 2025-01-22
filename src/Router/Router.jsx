@@ -22,10 +22,12 @@ import AdminRoutes from "../Components/AdminRoutes/AdminRoutes";
 import UpdateProperty from "../Pages/Dashboard/RightSideContent/AgentRoutes/UpdateProperty/UpdateProperty";
 import Details from "../Pages/Details/Details";
 import OfferForm from "../Pages/Dashboard/RightSideContent/UsersRoutes/offerForm/OfferForm";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 const Router = createBrowserRouter([
     {
         path:'/',
         element: <MainLayout></MainLayout>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',

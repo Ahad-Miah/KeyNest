@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
 const PropertyBrought = () => {
+  
 
         const {user}=useContext(AuthContext);
     const { data: properties ,refetch} = useQuery({

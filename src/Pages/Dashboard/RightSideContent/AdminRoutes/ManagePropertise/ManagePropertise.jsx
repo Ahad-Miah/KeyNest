@@ -4,20 +4,23 @@ import { space } from 'postcss/lib/list';
 import React from 'react';
 import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
 import { toast } from 'react-toastify';
+import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
 
 const ManagePropertise = () => {
+
+  const axiosSecure=useAxiosSecure();
 
   const { data: properties ,refetch} = useQuery({
     queryKey: ['properties'],
     queryFn: async () => {
-      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}allProperties`)
+      const { data } = await axiosSecure.get(`allProperties`)
       return data;
     },
   })
   // console.log(properties);
 
   const handleStatus=(id,status)=>{
-    axios.patch(`${import.meta.env.VITE_API_URL}updateStatus/${id}?status=${status}`)
+    axiosSecure.patch(`updateStatus/${id}?status=${status}`)
     .then(result=>{
       if(result.data.acknowledged){
         toast.success(`${status} successfully`);
