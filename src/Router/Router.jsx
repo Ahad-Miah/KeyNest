@@ -23,6 +23,7 @@ import UpdateProperty from "../Pages/Dashboard/RightSideContent/AgentRoutes/Upda
 import Details from "../Pages/Details/Details";
 import OfferForm from "../Pages/Dashboard/RightSideContent/UsersRoutes/offerForm/OfferForm";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import AdvertiseProperty from "../Pages/Dashboard/RightSideContent/AdminRoutes/AdvertiseProperty/AdvertiseProperty";
 const Router = createBrowserRouter([
     {
         path:'/',
@@ -101,6 +102,10 @@ const Router = createBrowserRouter([
             {
                 path:'manageProperties',
                 element:<AdminRoutes><ManagePropertis></ManagePropertis></AdminRoutes>
+            },
+            {
+                path:'advertise',
+                element:<AdminRoutes><AdvertiseProperty></AdvertiseProperty></AdminRoutes>
             },
             {
                 path:'manageUsers',

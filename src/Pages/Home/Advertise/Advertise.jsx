@@ -8,8 +8,8 @@ const Advertise = () => {
     const { data: properties ,refetch} = useQuery({
         queryKey: ['properties'],
         queryFn: async () => {
-          const { data } = await axios.get(`${import.meta.env.VITE_API_URL}verifiedProperties`)
-          return data.reverse();
+          const { data } = await axios.get(`${import.meta.env.VITE_API_URL}advertiseProperty`)
+          return data;
         },
       })
 

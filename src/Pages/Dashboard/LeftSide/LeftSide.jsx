@@ -158,6 +158,15 @@ const LeftSide = () => {
             Manage Reviews
         </li>
         </NavLink>
+        <NavLink 
+        className={({ isActive }) =>
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100  rounded-lg" : ""}
+        to='/dashboard/advertise'>
+        <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
+            <MdOutlineRateReview className="mr-3 text-lg" />
+            Advertise Property
+        </li>
+        </NavLink>
     </>
     return (
         <div className="bg-white min-h-screen  shadow-xl flex flex-col p-4 border border-base-300 rounded-lg">
