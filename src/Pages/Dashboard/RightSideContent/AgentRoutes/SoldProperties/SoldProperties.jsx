@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FaDollarSign, FaTrophy } from 'react-icons/fa';
+import { AuthContext } from '../../../../../Provider/AuthProvider/AuthProvider';
+import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
 
 const SoldProperties = () => {
-    const soldProperties = [
-        {
-          title: 'Luxury Apartment',
-          location: 'Downtown, NY',
-          buyerName: 'Jane Smith',
-          buyerEmail: 'jane.smith@example.com',
-          soldPrice: 600000,
-        },
-        // Add more sample sold properties as needed
-      ];
+      const axiosSecure=useAxiosSecure();
+
+  const {user}=useContext(AuthContext);
+  const { data: soldProperties ,refetch} = useQuery({
+    queryKey: ['soldProperties',user?.email],
+    queryFn: async () => {
+      const { data } = await axiosSecure.get(`agentPropertysell/${user?.email}`)
+      return data;
+    },
+  })
+  const totalPrice=soldProperties?.reduce((sum,p)=>sum+p.soldPrice,0);
   return (
     <div className="max-w-7xl mx-auto my-10 p-4">
       <Helmet>
@@ -28,7 +32,7 @@ const SoldProperties = () => {
         <p className="text-3xl font-bold flex items-center gap-2">
           <FaDollarSign className="text-yellow-300" />
           {/* {totalAmount.toLocaleString()} BDT */}
-          1000 BDT
+          {totalPrice} BDT
         </p>
         <p className="mt-3 text-sm opacity-90">
           Keep up the excellent work! 🏆
@@ -47,15 +51,15 @@ const SoldProperties = () => {
             </tr>
           </thead>
           <tbody>
-            {soldProperties.map((property, index) => (
+            {soldProperties?.map((property, index) => (
               <tr
                 key={index}
                 className={`$ {
                   index % 2 === 0 ? 'bg-gray-100' : 'bg-white'
                 } hover:bg-gray-200 transition-colors duration-200`}
               >
-                <td className="border px-4 py-2 font-medium">{property.title}</td>
-                <td className="border px-4 py-2">{property.location}</td>
+                <td className="border px-4 py-2 font-medium">{property?.propertyTitle}</td>
+                <td className="border px-4 py-2">{property?.propertyLocation}</td>
                 <td className="border px-4 py-2">{property.buyerName}</td>
                 <td className="border px-4 py-2">{property.buyerEmail}</td>
                 <td className="border px-4 py-2 text-green-500 font-semibold">${property.soldPrice}</td>

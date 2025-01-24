@@ -4,11 +4,13 @@ import { AuthContext } from "../../../../Provider/AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const MyProfile = () => {
   const { user, Signout } = useContext(AuthContext);
+  const navigate=useNavigate();
 
   const handleSignOut = () => {
     Signout()
