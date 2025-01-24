@@ -40,14 +40,14 @@ const LeftSide = () => {
     const userLinks = <>
         <NavLink
          className={({ isActive }) =>
-            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : "flex items-center"}
         to='/dashboard/myProfile'><li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <FaUserFriends className="mr-3 text-lg" />
             My Profile
         </li></NavLink>
         <NavLink
          className={({ isActive }) =>
-            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : "flex items-center"}
         to='/dashboard/wishList'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <BsHeart className="mr-3 text-lg" />
@@ -56,7 +56,7 @@ const LeftSide = () => {
         </NavLink>
         <NavLink
          className={({ isActive }) =>
-            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : "flex items-center"}
         to='/dashboard/propertyBrought'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <BsBuildings className="mr-3 text-lg" />
@@ -65,7 +65,7 @@ const LeftSide = () => {
         </NavLink>
         <NavLink
          className={({ isActive }) =>
-            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : "flex items-center"}
         to='/dashboard/reviews'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <MdOutlineReviews className="mr-3 text-lg" />
@@ -76,7 +76,7 @@ const LeftSide = () => {
     const agentLinks = <>
         <NavLink
         className={({ isActive }) =>
-            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : "flex items-center"}
         to='/dashboard/myProfile'>
         <li className="flex items-center  font-medium  p-2 rounded-lg">
             <FaUserFriends className="mr-3 text-lg" />
@@ -85,7 +85,7 @@ const LeftSide = () => {
         </NavLink>
         <NavLink 
         className={({ isActive }) =>
-            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : "flex items-center"}
         to='/dashboard/addProperty'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <IoMdAdd className="mr-3 text-lg" />
@@ -94,7 +94,7 @@ const LeftSide = () => {
         </NavLink>
        <NavLink
        className={({ isActive }) =>
-        isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+        isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : "flex items-center"}
        to='/dashboard/myAddedProperties'>
        <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <TbBuildingCommunity className="mr-3 text-lg" />
@@ -103,7 +103,7 @@ const LeftSide = () => {
        </NavLink>
         <NavLink
         className={({ isActive }) =>
-            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : "flex items-center"}
         to='/dashboard/soldProperties'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <GrMoney className="mr-3 text-lg" />
@@ -112,7 +112,7 @@ const LeftSide = () => {
         </NavLink>
         <NavLink
         className={({ isActive }) =>
-            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : "flex items-center"}
         to='/dashboard/requestedProperties'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
         <CiSquareQuestion  className="mr-3 text-lg" />
@@ -124,7 +124,7 @@ const LeftSide = () => {
     const adminLinks=<>
         <NavLink 
          className={({ isActive }) =>
-            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : ""}
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : "flex items-center"}
         to='/dashboard/myProfile'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <FaUserFriends className="mr-3 text-lg" />
@@ -133,7 +133,7 @@ const LeftSide = () => {
         </NavLink>
        <NavLink 
        className={({ isActive }) =>
-        isActive ? " flex items-center text-blue-600 font-medium bg-blue-100  rounded-lg" : ""}
+        isActive ? " flex items-center text-blue-600 font-medium bg-blue-100  rounded-lg" : "flex items-center"}
        to='/dashboard/manageProperties'>
        <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <MdOutlineManageHistory className="mr-3 text-lg" />
@@ -142,7 +142,7 @@ const LeftSide = () => {
        </NavLink>
         <NavLink 
         className={({ isActive }) =>
-            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100  rounded-lg" : ""}
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100  rounded-lg" : "flex items-center"}
         to='/dashboard/manageUsers'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <MdManageAccounts className="mr-3 text-lg" />
@@ -151,7 +151,7 @@ const LeftSide = () => {
         </NavLink>
         <NavLink 
         className={({ isActive }) =>
-            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100  rounded-lg" : ""}
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100  rounded-lg" : "flex items-center"}
         to='/dashboard/manageReviews'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <MdOutlineRateReview className="mr-3 text-lg" />
@@ -160,7 +160,7 @@ const LeftSide = () => {
         </NavLink>
         <NavLink 
         className={({ isActive }) =>
-            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100  rounded-lg" : ""}
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100  rounded-lg" : "flex items-center"}
         to='/dashboard/advertise'>
         <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
             <MdOutlineRateReview className="mr-3 text-lg" />

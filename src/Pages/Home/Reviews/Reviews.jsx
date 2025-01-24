@@ -31,7 +31,7 @@ const Reviews = () => {
                 className="w-12 h-12 rounded-full border-2 border-accent"
               />
               <div>
-                <h4 className="text-lg font-semibold text-gray-800">{review.name}</h4>
+                <h4 className="text-lg font-semibold text-gray-800">{review.userName}</h4>
                 <p className="text-sm text-gray-500">{review?.propertyTitle}</p>
               </div>
             </div>

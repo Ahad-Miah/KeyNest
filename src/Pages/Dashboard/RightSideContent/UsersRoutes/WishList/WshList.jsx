@@ -99,7 +99,7 @@ const Wishlist = () => {
         <div className="grid grid-cols-1 gap-6">
           {wishlist?.map((property) => (
             <div
-              className="flex h-[200px] flex-col items-center bg-white border border-red-900 rounded-lg shadow-xl md:flex-row md:justify-between"
+              className="flex md:h-[200px] flex-col items-center bg-white border border-red-900 rounded-lg shadow-xl md:flex-row md:justify-between"
             >
               <img
                 className="object-cover w-1/2 rounded-t-lg h-full  border border-green-900 md:rounded-none md:rounded-s-lg"
@@ -130,7 +130,7 @@ const Wishlist = () => {
 
                 <p className="text-lg font-semibold text-green-600">Price Range: {property?.price?.minPrice} - {property?.price?.minPrice}</p>
               </div>
-              <div className="flex space-x-3 mt-4 mr-4">
+              <div className="flex space-x-3 mb-4 mt-4 mr-4">
                   <Link to={`/dashboard/offerForm/${property?._id}`}>
                   <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300">
                     Make an Offer

@@ -21,7 +21,7 @@ const Dashboard = () => {
                     <Drawer links={Sidebar}></Drawer>
                 </div>
             </div>
-            <div className="lg:col-span-9 border mt-5 lg:mt-0 border-blue-900">
+            <div className="lg:col-span-9  mt-5 lg:mt-0 ">
                 <Outlet></Outlet>
             </div>
         </div>

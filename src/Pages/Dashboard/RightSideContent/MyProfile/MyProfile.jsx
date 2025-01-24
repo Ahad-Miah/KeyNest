@@ -35,15 +35,15 @@ const MyProfile = () => {
       <div className="bg-white shadow-lg rounded-2xl w-full max-w-4xl p-6 md:flex">
         {/* Left Section: Profile Image */}
         <div className="flex justify-center md:w-1/3 mb-6 md:mb-0">
-          <div className="relative">
+          <div className="">
             <img
               src={user?.photoURL}
               alt="User"
               className="w-40 h-40 rounded-full border-4 border-blue-500 shadow-lg"
             />
-            <div className="absolute bottom-0 right-0 bg-blue-500 p-2 rounded-full text-white shadow-md">
+            {/* <div className="absolute bottom-0 right-0 bg-blue-500 p-2 rounded-full text-white shadow-md">
               <FaMapMarkerAlt size={24} />
-            </div>
+            </div> */}
           </div>
         </div>
 
