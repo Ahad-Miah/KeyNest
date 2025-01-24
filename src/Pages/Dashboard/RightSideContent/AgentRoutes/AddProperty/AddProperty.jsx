@@ -10,6 +10,7 @@ const AddProperty = () => {
   
   const [uploadedImageUrl, setUploadedImageUrl] = useState("");
   const { user } = useContext(AuthContext);
+  const axiosSecure=useAxiosSecure();
 
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
@@ -63,7 +64,6 @@ const AddProperty = () => {
       agentEmail, price,image:uploadedImageUrl,verificationStatus:"pending"
     }
     // console.log(propertyInfo)
-    const axiosSecure=useAxiosSecure();
 
     axiosSecure.post(`add-property`,propertyInfo)
     .then(result=>{

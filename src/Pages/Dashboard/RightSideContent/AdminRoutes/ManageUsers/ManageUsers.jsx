@@ -7,9 +7,9 @@ import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
 
 const ManageUsers = () => {
- const  axiosSecure=useAxiosSecure();
+  const axiosSecure = useAxiosSecure();
 
-  const { data: users ,refetch} = useQuery({
+  const { data: users, refetch } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
       const { data } = await axiosSecure.get(`users`)
@@ -17,56 +17,57 @@ const ManageUsers = () => {
     },
   })
 
-      const handleRole=(id,role,email)=>{
-        axiosSecure.patch(`updateRole/${id}?role=${role}&email=${email}`)
-          .then(result=>{
-                if(result.data.acknowledged){
-                  toast.success(`Updated user role to ${role}`);
-              }
+  const handleRole = (id, role, email) => {
+    axiosSecure.patch(`updateRole/${id}?role=${role}&email=${email}`)
+      .then(result => {
+        if (result.data.acknowledged) {
+          toast.success(`Updated user role to ${role}`);
+        }
+        refetch();
+      })
+  }
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`deleteUser/${id}`)
+          .then(result => {
+            if (result.data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "User has been deleted.",
+                icon: "success"
+              });
               refetch();
-              })
-      }
-      const handleDelete=(id)=>{
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-          if (result.isConfirmed) {
-          
-             
-                  Swal.fire({
-                      title: "Deleted!",
-                      text: "Your file has been deleted.",
-                      icon: "success"
-                    });
-                    console.log("deleted",id);
-                 }
-            
-          
-        
-        });
+            }
+          });
       }
 
-    // const users = [
-    //     {
-    //       id: 1,
-    //       name: 'John Doe',
-    //       email: 'john.doe@example.com',
-    //       role: 'user',
-    //     },
-    //     {
-    //       id: 2,
-    //       name: 'Jane Smith',
-    //       email: 'jane.smith@example.com',
-    //       role: 'agent',
-    //     },
-    //     // Add more sample users as needed
-    //   ];
+    });
+  }
+
+  // const users = [
+  //     {
+  //       id: 1,
+  //       name: 'John Doe',
+  //       email: 'john.doe@example.com',
+  //       role: 'user',
+  //     },
+  //     {
+  //       id: 2,
+  //       name: 'Jane Smith',
+  //       email: 'jane.smith@example.com',
+  //       role: 'agent',
+  //     },
+  //     // Add more sample users as needed
+  //   ];
   return (
     <div className="max-w-7xl mx-auto my-10 p-4">
       <h1 className="text-2xl font-bold mb-6 text-center">Manage Users</h1>
@@ -92,34 +93,34 @@ const ManageUsers = () => {
                 <td className="border px-4 py-2 flex items-center justify-center space-x-2">
 
                   {
-                    user.role==='fraud'?<span className='badge badge-secondary p-3 font-semibold bg-green-600 text-center'>Fraud</span>
-                    :<>
-                    <button
-                    onClick={()=>handleRole(user?._id,"admin")}
-                    className="flex items-center px-3 py-2 bg-blue-500 text-white text-sm font-medium rounded-md hover:bg-blue-600 transition-colors duration-300"
-                  >
-                    <AiOutlineUser className="mr-2" /> Make Admin
-                  </button>
-                  <button
-                  disabled={user?.role==="admin"}
-                  onClick={()=>handleRole(user?._id,"agent")}
-                    className="flex items-center px-3 py-2 bg-purple-500 text-white text-sm font-medium rounded-md hover:bg-purple-600 transition-colors duration-300"
-                  >
-                    <AiOutlineUser className="mr-2" /> Make Agent
-                  </button>
-                  {user.role === 'agent' && (
-                    <button
-                    onClick={()=>handleRole(user?._id,"fraud",user?.email)}
-                      className="flex items-center px-3 py-2 bg-yellow-500 text-white text-sm font-medium rounded-md hover:bg-yellow-600 transition-colors duration-300"
-                    >
-                      <AiOutlineExclamationCircle className="mr-2" /> Mark as Fraud
-                    </button>
-                  )}
-                    </>
+                    user.role === 'fraud' ? <span className='badge badge-secondary p-3 font-semibold bg-green-600 text-center'>Fraud</span>
+                      : <>
+                        <button
+                          onClick={() => handleRole(user?._id, "admin")}
+                          className="flex items-center px-3 py-2 bg-blue-500 text-white text-sm font-medium rounded-md hover:bg-blue-600 transition-colors duration-300"
+                        >
+                          <AiOutlineUser className="mr-2" /> Make Admin
+                        </button>
+                        <button
+                          disabled={user?.role === "admin"}
+                          onClick={() => handleRole(user?._id, "agent")}
+                          className="flex items-center px-3 py-2 bg-purple-500 text-white text-sm font-medium rounded-md hover:bg-purple-600 transition-colors duration-300"
+                        >
+                          <AiOutlineUser className="mr-2" />{user.role === "agent" ? "Agent" : "Make Agent"}
+                        </button>
+                        {user.role === 'agent' && (
+                          <button
+                            onClick={() => handleRole(user?._id, "fraud", user?.email)}
+                            className="flex items-center px-3 py-2 bg-yellow-500 text-white text-sm font-medium rounded-md hover:bg-yellow-600 transition-colors duration-300"
+                          >
+                            <AiOutlineExclamationCircle className="mr-2" /> Mark as Fraud
+                          </button>
+                        )}
+                      </>
                   }
-                  
+
                   <button
-                  onClick={()=>handleDelete(user?._id)}
+                    onClick={() => handleDelete(user?._id)}
                     className="flex items-center px-3 py-2 bg-red-500 text-white text-sm font-medium rounded-md hover:bg-red-600 transition-colors duration-300"
                   >
                     <AiOutlineDelete className="mr-2" /> Delete User

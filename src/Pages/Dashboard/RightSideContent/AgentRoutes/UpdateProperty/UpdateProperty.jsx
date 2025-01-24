@@ -65,9 +65,11 @@ const UpdateProperty = () => {
     const price = {
       minPrice, maxPrice
     }
+    let image=`${uploadedImageUrl?uploadedImageUrl:singleProperty?.image}`
+   
     const propertyInfo = {
         title, location,description, agentName,
-        agentEmail, price,image:uploadedImageUrl,
+        agentEmail, price,image
       }
 
       // console.log(propertyInfo);
