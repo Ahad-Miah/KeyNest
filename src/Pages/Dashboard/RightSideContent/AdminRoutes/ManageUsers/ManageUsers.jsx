@@ -103,7 +103,7 @@ const ManageUsers = () => {
                           onClick={() => handleRole(user?._id, "admin")}
                           className="flex items-center px-3 py-2 bg-blue-500 text-white text-sm font-medium rounded-md hover:bg-blue-600 transition-colors duration-300"
                         >
-                          <AiOutlineUser className="mr-2" /> Make Admin
+                          <AiOutlineUser className="mr-2" /> {user.role === "admin" ? "Admin" : "Make Admin"}
                         </button>
                         <button
                           disabled={user?.role === "admin"}

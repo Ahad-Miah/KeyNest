@@ -3,11 +3,11 @@
 Welcome to **KeyNest**, an intuitive platform for property buying, selling, and managing listings. This platform provides comprehensive features for agents, buyers, and admins.  
 
 ## 🔗 Live Site URL  
-[Visit the Live Site](https://your-website-url.com)  
+[Visit the Live Site](https://tiny-cat-28deae.netlify.app/)  
 
 ## 👤 Admin Credentials  
-- **email:** admin@gmail.com  
-- **Password:** 1234@Sa  
+- **UserEmail:** `admin@gmail.com ` 
+- **Password:** `1234@Sa ` 
 
 ---
 
@@ -33,7 +33,4 @@ Welcome to **KeyNest**, an intuitive platform for property buying, selling, and 
 - **Database:** MongoDB  
 - **Authentication:** Firebase  
 
----
-
-## 📋 How to Run Locally  
-
+--- 

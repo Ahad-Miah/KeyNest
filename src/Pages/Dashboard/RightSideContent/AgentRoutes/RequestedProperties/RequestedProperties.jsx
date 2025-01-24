@@ -69,7 +69,7 @@ const RequestedProperties = () => {
                 <td className="border px-4 py-2 text-blue-500 font-semibold">${offer?.offerPrice}</td>
                 <td className="px-4 py-2 flex space-x-2 justify-center items-center mt-1.5">
                   {
-                   offer?.status==="accepted"?<span className='badge badge-secondary p-3 font-semibold bg-green-600'>Accepted</span>:offer?.status==="rejected"?<span className='badge badge-secondary p-3 font-semibold bg-red-600'>Rejected</span>:
+                   offer?.status==="accepted"?<span className='badge badge-secondary p-3 font-semibold bg-green-600'>Accepted</span>:offer?.status==="rejected"?<span className='badge badge-secondary p-3 font-semibold bg-red-600'>Rejected</span>: offer?.status==="bought"?<span className='badge badge-secondary p-3 font-semibold bg-green-600'>Bought</span>:
                    <>
                    <button
                     onClick={() => handleStatus(offer?._id,"accept",offer?.propertyId)}

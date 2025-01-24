@@ -31,7 +31,7 @@ const Navbar = () => {
         <NavLink
             className={({ isActive }) =>
                 isActive ? " text-[#C82021] font-bold text-[16px] underline" : ""}
-            to='/dashboard'><li><a>Dashboard</a></li></NavLink>
+            to='/dashboard/myProfile'><li><a>Dashboard</a></li></NavLink>
             </>:""
         }
     </>
