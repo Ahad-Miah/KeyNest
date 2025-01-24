@@ -24,101 +24,110 @@ import Details from "../Pages/Details/Details";
 import OfferForm from "../Pages/Dashboard/RightSideContent/UsersRoutes/offerForm/OfferForm";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import AdvertiseProperty from "../Pages/Dashboard/RightSideContent/AdminRoutes/AdvertiseProperty/AdvertiseProperty";
+import Payment from "../Pages/Dashboard/RightSideContent/UsersRoutes/Payment/Payment";
 const Router = createBrowserRouter([
     {
-        path:'/',
+        path: '/',
         element: <MainLayout></MainLayout>,
-        errorElement:<ErrorPage></ErrorPage>,
-        children:[
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
             {
-                path:'/',
-                element:<HomePage></HomePage>
+                path: '/',
+                element: <HomePage></HomePage>
             },
             {
-                path:'/allProperties',
-                element:<PrivateRoutes><AllProperties></AllProperties></PrivateRoutes>
+                path: '/allProperties',
+                element: <PrivateRoutes><AllProperties></AllProperties></PrivateRoutes>
             },
             {
-                path:'/login',
-                element:<Login></Login>
+                path: '/login',
+                element: <Login></Login>
             },
             {
-                path:'/register',
-                element:<Register></Register>
+                path: '/register',
+                element: <Register></Register>
             },
             {
-                path:'/details/:id',
-                element:<PrivateRoutes><Details></Details></PrivateRoutes>,
-                loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}property/${params.id}`)
+                path: '/details/:id',
+                element: <PrivateRoutes><Details></Details></PrivateRoutes>,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}property/${params.id}`)
             },
+           
         ]
     },
     {
-        path:'dashboard',
-        element:<PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
-        children:[
+        path: 'dashboard',
+        element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
+        children: [
             {
-                path:'myProfile',
-                element:<MyProfile></MyProfile>
+                path: 'myProfile',
+                element: <MyProfile></MyProfile>
             },
             {
-                path:'wishList',
-                element:<Wishlist></Wishlist>
+                path: 'wishList',
+                element: <Wishlist></Wishlist>
             },
             {
-                path:'offerForm/:id',
-                element:<PrivateRoutes><OfferForm></OfferForm></PrivateRoutes>,
-                loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}singleWishlist/${params.id}`)
+                path: 'offerForm/:id',
+                element: <PrivateRoutes><OfferForm></OfferForm></PrivateRoutes>,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}singleWishlist/${params.id}`)
             },
             {
-                path:'propertyBrought',
-                element:<PropertyBrought></PropertyBrought>
+                path: 'propertyBrought',
+                element: <PropertyBrought></PropertyBrought>
             },
             {
-                path:'reviews',
-                element:<ReviewsPage></ReviewsPage>
+
+                path: 'payment/:id',
+                element: <PrivateRoutes><Payment></Payment></PrivateRoutes>,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}singleOffered/${params.id}`)
+
             },
             {
-                path:'addProperty',
-                element:<AgentRoutes><AddProperty></AddProperty></AgentRoutes>
+                path: 'reviews',
+                element: <ReviewsPage></ReviewsPage>
             },
             {
-                path:'myAddedProperties',
-                element:<AgentRoutes><AddedProperties></AddedProperties></AgentRoutes>
+                path: 'addProperty',
+                element: <AgentRoutes><AddProperty></AddProperty></AgentRoutes>
             },
             {
-                path:'soldProperties',
-                element:<AgentRoutes><SoldProperties></SoldProperties></AgentRoutes>
+                path: 'myAddedProperties',
+                element: <AgentRoutes><AddedProperties></AddedProperties></AgentRoutes>
             },
             {
-                path:'requestedProperties',
-                element:<AgentRoutes><RequestedProperties></RequestedProperties></AgentRoutes>
+                path: 'soldProperties',
+                element: <AgentRoutes><SoldProperties></SoldProperties></AgentRoutes>
             },
             {
-                path:'updateProperties/:id',
-                element:<AgentRoutes><UpdateProperty></UpdateProperty></AgentRoutes>,
-                loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}property/${params.id}`)
+                path: 'requestedProperties',
+                element: <AgentRoutes><RequestedProperties></RequestedProperties></AgentRoutes>
             },
             {
-                path:'manageProperties',
-                element:<AdminRoutes><ManagePropertis></ManagePropertis></AdminRoutes>
+                path: 'updateProperties/:id',
+                element: <AgentRoutes><UpdateProperty></UpdateProperty></AgentRoutes>,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}property/${params.id}`)
             },
             {
-                path:'advertise',
-                element:<AdminRoutes><AdvertiseProperty></AdvertiseProperty></AdminRoutes>
+                path: 'manageProperties',
+                element: <AdminRoutes><ManagePropertis></ManagePropertis></AdminRoutes>
             },
             {
-                path:'manageUsers',
-                element:<AdminRoutes><ManageUsers></ManageUsers></AdminRoutes>
+                path: 'advertise',
+                element: <AdminRoutes><AdvertiseProperty></AdvertiseProperty></AdminRoutes>
             },
             {
-                path:'manageReviews',
-                element:<AdminRoutes><ManageReviews></ManageReviews></AdminRoutes>
+                path: 'manageUsers',
+                element: <AdminRoutes><ManageUsers></ManageUsers></AdminRoutes>
+            },
+            {
+                path: 'manageReviews',
+                element: <AdminRoutes><ManageReviews></ManageReviews></AdminRoutes>
             }
 
         ]
     }
 ])
-   
+
 
 export default Router;

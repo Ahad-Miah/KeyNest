@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { FaDollarSign, FaTrophy } from 'react-icons/fa';
 
 const SoldProperties = () => {
@@ -14,6 +15,9 @@ const SoldProperties = () => {
       ];
   return (
     <div className="max-w-7xl mx-auto my-10 p-4">
+      <Helmet>
+        <title>Sold Properties || KeyNest</title>
+      </Helmet>
       <h1 className="text-2xl font-bold mb-6 text-center">My Sold Properties</h1>
       <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-xl rounded-lg p-6 text-white w-full mb-4 mx-auto md:mx-0 md:w-1/3 lg:w-full">
       <div className="flex flex-col items-center text-center">

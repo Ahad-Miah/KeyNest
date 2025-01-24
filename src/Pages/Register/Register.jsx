@@ -6,6 +6,7 @@ import { FaGoogle } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -91,6 +92,9 @@ const Register = () => {
 
   return (
     <div className="hero bg-base-100 min-h-screen">
+      <Helmet>
+        <title>Register || KeyNest</title>
+      </Helmet>
       <div className="hero-content flex-col lg:flex-row-reverse gap-6">
         <div className="text-center lg:text-left">
           <Lottie animationData={registerAnimation}></Lottie>

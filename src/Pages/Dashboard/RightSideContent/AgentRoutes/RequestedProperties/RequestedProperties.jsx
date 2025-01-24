@@ -5,6 +5,7 @@ import { AuthContext } from '../../../../../Provider/AuthProvider/AuthProvider';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 const RequestedProperties = () => {
 
@@ -37,6 +38,9 @@ const RequestedProperties = () => {
 
   return (
     <div className="mx-auto my-10 p-4">
+      <Helmet>
+        <title>Requested Properties || KeyNest</title>
+      </Helmet>
       <h1 className="text-2xl font-bold mb-6 text-center">Requested/Offered Properties</h1>
       <div className="overflow-x-auto">
         <table className=" table-auto border-collapse border border-gray-300">

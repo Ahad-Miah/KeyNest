@@ -4,6 +4,7 @@ import React from 'react';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
 
 const AdvertiseProperty = () => {
 
@@ -28,6 +29,9 @@ const AdvertiseProperty = () => {
         }
   return (
     <div className="max-w-7xl mx-auto my-10 p-4">
+      <Helmet>
+        <title>Advertise Property || KeyNest</title>
+      </Helmet>
       <h1 className="text-3xl font-bold mb-6 text-center text-indigo-700">Advertise Property</h1>
       <div className="overflow-x-auto">
         <table className="table-auto w-full border border-gray-200 shadow-lg">

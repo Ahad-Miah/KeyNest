@@ -3,6 +3,7 @@ import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaUser } from "react-icons/fa";
 import { AuthContext } from "../../../../Provider/AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faUser } from "@fortawesome/free-solid-svg-icons";
 
@@ -26,6 +27,9 @@ const MyProfile = () => {
   })
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center px-4">
+      <Helmet>
+        <title>Profile || KeyNest</title>
+      </Helmet>
       <div className="bg-white shadow-lg rounded-2xl w-full max-w-4xl p-6 md:flex">
         {/* Left Section: Profile Image */}
         <div className="flex justify-center md:w-1/3 mb-6 md:mb-0">

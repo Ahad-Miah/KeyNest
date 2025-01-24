@@ -1,10 +1,14 @@
 import React from 'react';
 import { FaExclamationTriangle } from 'react-icons/fa';
 import errorImg from '../../assets/error.png'
+import { Helmet } from 'react-helmet-async';
 
 const ErrorPage = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+      <Helmet>
+        <title>Error || KeyNest</title>
+      </Helmet>
       <div className="flex flex-col items-center">
         <FaExclamationTriangle className="text-red-500 text-8xl mb-6 animate-pulse" />
         <h1 className="text-4xl font-bold text-gray-800 mb-4">Oops! Something Went Wrong</h1>

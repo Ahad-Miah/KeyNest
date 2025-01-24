@@ -5,6 +5,7 @@ import { useLoaderData, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -89,6 +90,9 @@ const UpdateProperty = () => {
         }
     return (
          <div className="mx-auto my-10 p-6  rounded-lg shadow-md bg-white">
+          <Helmet>
+        <title>Update Property || KeyNest</title>
+      </Helmet>
               <h1 className="text-4xl font-bold mb-6">Update Property</h1>
               <form onSubmit={handleUpdateProperty}>
                 {/* title */}

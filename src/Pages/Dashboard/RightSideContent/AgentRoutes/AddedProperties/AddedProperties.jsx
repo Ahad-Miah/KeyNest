@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 const AddedProperties = () => {
     const {user}=useContext(AuthContext);
@@ -61,6 +62,9 @@ const AddedProperties = () => {
   // ];
   return (
     <div className="max-w-7xl mx-auto my-10 p-4">
+      <Helmet>
+        <title>My Added Properties || KeyNest</title>
+      </Helmet>
       <h1 className="text-2xl font-bold mb-6 text-center">My Added Properties</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {properties?.map((property) => (

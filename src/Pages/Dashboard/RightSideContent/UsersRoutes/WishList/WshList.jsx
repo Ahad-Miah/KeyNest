@@ -6,6 +6,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 
 const Wishlist = () => {
@@ -89,7 +90,10 @@ const Wishlist = () => {
     });
   }
   return (
-    <div className="bg-gray-100  py-12 px-4 sm:px-6 lg:px-8">
+    <div className="  py-12 px-4 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>WishList || KeyNest</title>
+      </Helmet>
       <div className=" mx-auto">
         <h1 className="text-4xl font-extrabold text-gray-800 mb-8">Your Wishlist</h1>
         <div className="grid grid-cols-1 gap-6">

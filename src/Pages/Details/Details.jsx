@@ -5,6 +5,7 @@ import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useQuery } from '@tanstack/react-query';
+import { Helmet } from 'react-helmet-async';
 
 const Details = () => {
 
@@ -89,6 +90,9 @@ const now = new Date();
 
   return (
     <div className="py-12 px-4 md:px-8 mx-auto">
+      <Helmet>
+        <title>Details || KeyNest</title>
+      </Helmet>
       <h1 className="text-3xl font-bold mb-6 text-center text-indigo-700">{property?.title}</h1>
       <div className="flex flex-col md:flex-row gap-6">
         <img

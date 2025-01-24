@@ -5,6 +5,7 @@ import React from 'react';
 import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
 import { toast } from 'react-toastify';
 import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 const ManagePropertise = () => {
 
@@ -32,6 +33,9 @@ const ManagePropertise = () => {
    
   return (
     <div className="max-w-7xl mx-auto my-10 p-4">
+      <Helmet>
+        <title>Manage Properties || KeyNest</title>
+      </Helmet>
       <h1 className="text-2xl font-bold mb-6 text-center">Manage Properties</h1>
       <div className="overflow-x-auto">
         <table className="min-w-full table-auto border-collapse border border-gray-300">

@@ -4,6 +4,7 @@ import { AuthContext } from '../../../../../Provider/AuthProvider/AuthProvider';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const AddProperty = () => {
@@ -78,6 +79,9 @@ const AddProperty = () => {
   }
   return (
     <div className="mx-auto my-10 p-6  rounded-lg shadow-md bg-white">
+      <Helmet>
+        <title>Add Property || KeyNest</title>
+      </Helmet>
       <h1 className="text-4xl font-bold mb-6">Add Property</h1>
       <form onSubmit={handleAddProperty}>
         {/* title */}

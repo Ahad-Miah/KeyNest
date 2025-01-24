@@ -4,6 +4,7 @@ import { AuthContext } from '../../../../../Provider/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 
 const OfferForm = () => {
   const [offerAmount, setOfferAmount] = useState('');
@@ -59,6 +60,9 @@ return data.role;
 
   return (
     <div className="max-w-3xl mx-auto my-10 p-6 bg-white shadow-lg rounded-lg">
+      <Helmet>
+        <title>Offer || KeyNest</title>
+      </Helmet>
       <h1 className="text-2xl font-bold mb-6 text-center text-indigo-600">Make an Offer</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

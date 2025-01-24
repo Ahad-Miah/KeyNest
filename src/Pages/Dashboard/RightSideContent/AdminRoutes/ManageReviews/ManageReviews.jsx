@@ -4,6 +4,7 @@ import React from 'react';
 import { AiOutlineDelete } from 'react-icons/ai';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 const ManageReviews = () => {
   const axiosSecure=useAxiosSecure();
@@ -44,6 +45,9 @@ const ManageReviews = () => {
       }
   return (
     <div className="max-w-7xl mx-auto my-10 p-4">
+      <Helmet>
+        <title>Manage Reviews || KeyNest</title>
+      </Helmet>
       <h1 className="text-2xl font-bold mb-6 text-center">Manage Reviews</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {reviews?.map((review, index) => (

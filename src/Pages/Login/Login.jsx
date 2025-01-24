@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
 
@@ -44,6 +45,9 @@ const Login = () => {
     }
     return (
         <div className="hero bg-base-100 min-h-screen">
+            <Helmet>
+        <title>Login || KeyNest</title>
+      </Helmet>
             <div className="hero-content flex-col lg:flex-row-reverse gap-6">
                 <div className="text-center lg:text-left">
 

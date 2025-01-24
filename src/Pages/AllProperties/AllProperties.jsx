@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { FaCheckCircle, FaRegCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AllProperties = () => {
 
@@ -23,6 +24,9 @@ const AllProperties = () => {
   })
   return (
     <section className="py-12 bg-gray-50">
+      <Helmet>
+        <title>All Properties || KeyNest</title>
+      </Helmet>
       <div className="mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center  mb-12">

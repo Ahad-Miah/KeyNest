@@ -3,6 +3,8 @@ import { AiOutlineDollarCircle } from 'react-icons/ai';
 import { AuthContext } from '../../../../../Provider/AuthProvider/AuthProvider';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 
 const PropertyBrought = () => {
   
@@ -41,6 +43,9 @@ const PropertyBrought = () => {
 
     return (
         <div className="max-w-6xl mx-auto my-10 p-4">
+          <Helmet>
+        <title>Property Bought || KeyNest</title>
+      </Helmet>
         <h1 className="text-3xl font-bold mb-6 text-center text-indigo-700">Properties Bought</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {properties?.map((property, index) => (
@@ -64,18 +69,21 @@ const PropertyBrought = () => {
                       ? 'text-yellow-700 p-3 bg-yellow-200'
                       : property.status === 'accepted'
                       ? 'text-green-700 bg-green-300'
-                      : 'text-red-500'
+                      : property.status==='bought'
+                      ?'text-green-700 bg-green-300'
+                      :'text-red-500'
                   }`}
                 >
                   Status: {property.status.charAt(0).toUpperCase() + property.status.slice(1)}
                 </p>
                 {property.status === 'accepted' && (
+                  <Link to={`/dashboard/payment/${property?._id}`}>
                   <button
-                    onClick={() => onPay(property.id)}
                     className="mt-4 flex items-center justify-center px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition duration-300 w-full"
                   >
                     <AiOutlineDollarCircle className="mr-2" /> Pay
                   </button>
+                  </Link>
                 )}
               </div>
             </div>

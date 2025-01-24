@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 const ReviewsPage = () => {
   // const [reviews, setReviews] = useState([
@@ -61,6 +62,9 @@ const ReviewsPage = () => {
   }
   return (
     <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>Review || KeyNest</title>
+      </Helmet>
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-extrabold text-gray-800 mb-8">Your Reviews</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

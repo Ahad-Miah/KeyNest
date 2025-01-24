@@ -4,10 +4,14 @@ import Advertise from '../Advertise/Advertise';
 import Reviews from '../Reviews/Reviews';
 import HowItWorks from '../HowItWorks/HowItWorks';
 import AboutUS from '../AboutUs/AboutUS';
+import { Helmet } from 'react-helmet-async';
 
 const HomePage = () => {
     return (
         <div>
+            <Helmet>
+        <title>KeyNest</title>
+      </Helmet>
             <section>
                 <Banner></Banner>
             </section>

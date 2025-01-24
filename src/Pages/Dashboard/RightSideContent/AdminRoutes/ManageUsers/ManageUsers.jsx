@@ -5,6 +5,7 @@ import { AiOutlineUser, AiOutlineDelete, AiOutlineExclamationCircle } from 'reac
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../../hooks/useAxiosSecure/useAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 const ManageUsers = () => {
   const axiosSecure = useAxiosSecure();
@@ -70,6 +71,9 @@ const ManageUsers = () => {
   //   ];
   return (
     <div className="max-w-7xl mx-auto my-10 p-4">
+      <Helmet>
+        <title>Manage Users || KeyNest</title>
+      </Helmet>
       <h1 className="text-2xl font-bold mb-6 text-center">Manage Users</h1>
       <div className="overflow-x-auto">
         <table className="min-w-full table-auto border-collapse border border-gray-300">
