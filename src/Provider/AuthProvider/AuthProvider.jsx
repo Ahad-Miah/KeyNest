@@ -51,7 +51,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
 
         const unsubscribe = onAuthStateChanged(auth, async currentUser => {
-            console.log("currentUSer",currentUser);
+            // console.log("currentUSer",currentUser);
             setUser(currentUser);
             setLoading(false);
            
@@ -68,13 +68,16 @@ const AuthProvider = ({ children }) => {
                     localStorage.removeItem('access-token')
            }
            
-           if(currentUser.email){
+           if(currentUser?.email){
             await axios.post(`${import.meta.env.VITE_API_URL}users/${currentUser?.email}`,
                 {
                     name: currentUser?.displayName,
                     email: currentUser?.email,
                     image: currentUser?.photoURL,
                     role: "customer"
+                })
+                .then(res=>{
+                    
                 })
            }
         })

@@ -7,7 +7,7 @@ import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 const Navbar = () => {
 
     const { user, Signout, loading } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
     const navigate = useNavigate();
 
     const handleSignOut = () => {
@@ -21,17 +21,17 @@ const Navbar = () => {
         <NavLink
             className={({ isActive }) =>
                 isActive ? " text-[#C82021] font-bold text-[16px] underline" : ""}
-            to='/'> <li><a>Home</a></li></NavLink>
+            to='/'> <li><p>Home</p></li></NavLink>
         {
             user?<>
             <NavLink
             className={({ isActive }) =>
                 isActive ? " text-[#C82021] font-bold text-[16px] underline" : ""}
-            to='/allProperties'><li><a>All Properties</a></li></NavLink>
+            to='/allProperties'><li><p>All Properties</p></li></NavLink>
         <NavLink
             className={({ isActive }) =>
                 isActive ? " text-[#C82021] font-bold text-[16px] underline" : ""}
-            to='/dashboard/myProfile'><li><a>Dashboard</a></li></NavLink>
+            to='/dashboard/myProfile'><li><p>Dashboard</p></li></NavLink>
             </>:""
         }
     </>
