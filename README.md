@@ -28,9 +28,42 @@ Welcome to **KeyNest**, an intuitive platform for property buying, selling, and 
 
 ## 🛠️ Technologies Used  
 
-- **Frontend:** React, TailwindCSS, React Icons  
+- **Frontend:** React, TailwindCSS, React Icons, JavaScript, DaisyUi  
 - **Backend:** Node.js, Express.js  
 - **Database:** MongoDB  
 - **Authentication:** Firebase  
 
 --- 
+## 📦 Dependencies  
+
+This project uses the following dependencies:  
+
+| Package | Version | Description |
+|---------|---------|-------------|
+| **[@stripe/react-stripe-js](https://www.npmjs.com/package/@stripe/react-stripe-js)** | `^3.1.1` | React components for Stripe.js |
+| **[@stripe/stripe-js](https://www.npmjs.com/package/@stripe/stripe-js)** | `^5.5.0` | Stripe.js library for payments |
+| **[@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query)** | `^5.64.2` | Data fetching and caching |
+| **[axios](https://www.npmjs.com/package/axios)** | `^1.7.9` | Promise-based HTTP client |
+| **[firebase](https://www.npmjs.com/package/firebase)** | `^11.2.0` | Google Firebase SDK |
+| **[localforage](https://www.npmjs.com/package/localforage)** | `^1.10.0` | Offline storage library |
+| **[lottie-react](https://www.npmjs.com/package/lottie-react)** | `^2.4.0` | Lottie animations in React |
+| **[match-sorter](https://www.npmjs.com/package/match-sorter)** | `^8.0.0` | Lightweight sorting/filtering library |
+| **[react](https://www.npmjs.com/package/react)** | `^18.3.1` | Frontend JavaScript library |
+| **[react-dom](https://www.npmjs.com/package/react-dom)** | `^18.3.1` | DOM bindings for React |
+| **[react-helmet-async](https://www.npmjs.com/package/react-helmet-async)** | `^2.0.5` | Manage document head metadata |
+| **[react-icons](https://www.npmjs.com/package/react-icons)** | `^5.4.0` | Icon library for React |
+| **[react-router-dom](https://www.npmjs.com/package/react-router-dom)** | `^7.1.2` | Routing for React applications |
+| **[react-toastify](https://www.npmjs.com/package/react-toastify)** | `^11.0.3` | Toast notifications for React |
+| **[sort-by](https://www.npmjs.com/package/sort-by)** | `^1.2.0` | Sorting utility for JavaScript |
+| **[sweetalert2](https://www.npmjs.com/package/sweetalert2)** | `^11.15.10` | Stylish alert popups |
+| **[swiper](https://www.npmjs.com/package/swiper)** | `^11.2.1` | Modern touch slider |
+
+---
+
+## 📥 Installation  
+
+To install all dependencies, run:  
+
+```sh
+npm install
+---

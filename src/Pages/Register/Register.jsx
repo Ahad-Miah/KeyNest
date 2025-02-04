@@ -82,7 +82,7 @@ const Register = () => {
   const handleGoogleLogin=()=>{
           googleLogin()
           .then(res=>{
-              console.log(res);
+              // console.log(res);
               toast.success("Login Successful")
           })
           .catch(err=>{
