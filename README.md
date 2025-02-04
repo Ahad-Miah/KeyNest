@@ -66,4 +66,5 @@ To install all dependencies, run:
 
 ```sh
 npm install
----
+
+npm run dev
