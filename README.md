@@ -64,7 +64,9 @@ This project uses the following dependencies:
 
 To install all dependencies, run:  
 
-```sh
-npm install
-
-npm run dev
+ ```bash
+  npm  i
+```
+ ```bash
+  npm run dev
+```
