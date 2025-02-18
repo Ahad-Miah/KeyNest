@@ -25,6 +25,7 @@ import OfferForm from "../Pages/Dashboard/RightSideContent/UsersRoutes/offerForm
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import AdvertiseProperty from "../Pages/Dashboard/RightSideContent/AdminRoutes/AdvertiseProperty/AdvertiseProperty";
 import Payment from "../Pages/Dashboard/RightSideContent/UsersRoutes/Payment/Payment";
+import ContactUs from "../Pages/ContactUs/ContactUs";
 const Router = createBrowserRouter([
     {
         path: '/',
@@ -38,6 +39,10 @@ const Router = createBrowserRouter([
             {
                 path: '/allProperties',
                 element: <PrivateRoutes><AllProperties></AllProperties></PrivateRoutes>
+            },
+            {
+                path:'/contact',
+                element:<ContactUs></ContactUs>
             },
             {
                 path: '/login',
