@@ -1,16 +1,18 @@
 import React, { useContext, useState } from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useQuery } from '@tanstack/react-query';
 import { Helmet } from 'react-helmet-async';
+import Swal from 'sweetalert2';
 
 const Details = () => {
 
     const property=useLoaderData();
     const {user}=useContext(AuthContext);
+    const navigate=useNavigate();
     const {data: role}=useQuery({
         queryKey: ['role',user?.email],
   queryFn: async () => {
@@ -35,6 +37,22 @@ const Details = () => {
 //   ];
 
   const handleAddToWishlist=()=>{
+
+    if (!user) {
+      Swal.fire({
+        title: "You Have to Login before add!",
+        icon: "error",
+        draggable: true,
+        showCloseButton: true,
+        confirmButtonText: "Login",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login"); 
+        }
+      });
+    
+      return;
+    }
     const wishList={
         propertyImage:property?.image,
         propertyTitle:property?.title,
@@ -56,11 +74,26 @@ const Details = () => {
         }
     });
 
-  console.log(wishList);
+  // console.log(wishList);
 }
 const now = new Date();
 
   const handleAddReview = () => {
+    if (!user) {
+      Swal.fire({
+        title: "You Have to Login before add review!",
+        icon: "error",
+        draggable: true,
+        showCloseButton: true,
+        confirmButtonText: "Login",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login"); 
+        }
+      });
+    
+      return;
+    }
     if(reviewText===""){
         toast.error("please add a review");
         return;

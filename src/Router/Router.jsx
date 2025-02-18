@@ -38,7 +38,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/allProperties',
-                element: <PrivateRoutes><AllProperties></AllProperties></PrivateRoutes>
+                element: <AllProperties></AllProperties>
             },
             {
                 path:'/contact',
@@ -54,7 +54,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/details/:id',
-                element: <PrivateRoutes><Details></Details></PrivateRoutes>,
+                element: <Details></Details>,
                 loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}property/${params.id}`)
             },
            

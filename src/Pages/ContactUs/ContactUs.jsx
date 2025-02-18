@@ -3,6 +3,7 @@ import { SlCallOut } from "react-icons/sl";
 import { TfiEmail } from "react-icons/tfi";
 import { CiLocationOn } from "react-icons/ci";
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
 
 const ContactUs = () => {
 
@@ -12,7 +13,11 @@ const ContactUs = () => {
         e.target.reset();
     }
     return (
+        
         <div className='px-8 py-8 md:flex gap-5 *:mb-7'>
+              <Helmet>
+                    <title>Contact Us || KeyNest</title>
+                  </Helmet>
             <div className='border h-fit border-gray-200 p-4 md:w-1/2'>
             <div>
                 <h1 className='font-semibold text-3xl'>Get in touch</h1>

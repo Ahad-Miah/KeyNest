@@ -26,12 +26,12 @@ const Navbar = () => {
             className={({ isActive }) =>
                 isActive ? " text-[#C82021] font-bold text-[16px] underline" : ""}
             to='/contact'> <li><p>Contact Us</p></li></NavLink>
-        {
-            user?<>
-            <NavLink
+              <NavLink
             className={({ isActive }) =>
                 isActive ? " text-[#C82021] font-bold text-[16px] underline" : ""}
             to='/allProperties'><li><p>All Properties</p></li></NavLink>
+        {
+            user?<>
         <NavLink
             className={({ isActive }) =>
                 isActive ? " text-[#C82021] font-bold text-[16px] underline" : ""}
