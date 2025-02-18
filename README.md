@@ -2,6 +2,9 @@
 
 Welcome to **KeyNest**, an intuitive platform for property buying, selling, and managing listings. This platform provides comprehensive features for agents, buyers, and admins.  
 
+![KeyNest](https://i.ibb.co.com/hx26gYfn/keynest.png)
+
+
 ## 🔗 Live Site URL  
 [Visit the Live Site](https://tiny-cat-28deae.netlify.app/)  
 
@@ -64,7 +67,9 @@ This project uses the following dependencies:
 
 To install all dependencies, run:  
 
-```sh
-npm install
-
-npm run dev
+ ```bash
+  npm  i
+```
+ ```bash
+  npm run dev
+```
