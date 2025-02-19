@@ -27,6 +27,7 @@ import AdvertiseProperty from "../Pages/Dashboard/RightSideContent/AdminRoutes/A
 import Payment from "../Pages/Dashboard/RightSideContent/UsersRoutes/Payment/Payment";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import DashboardOverview from "../Pages/Dashboard/RightSideContent/DashboardOverview/DashboardOverview";
+import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
 const Router = createBrowserRouter([
     {
         path: '/',
@@ -39,11 +40,15 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/allProperties',
-                element: <AllProperties></AllProperties>
+                element:<PrivateRoutes><AllProperties></AllProperties></PrivateRoutes> 
             },
             {
                 path:'/contact',
                 element:<ContactUs></ContactUs>
+            },
+            {
+                path:'privacy',
+                element:<PrivacyPolicy></PrivacyPolicy>
             },
             {
                 path: '/login',
