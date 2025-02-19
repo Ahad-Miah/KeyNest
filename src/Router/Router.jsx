@@ -26,6 +26,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import AdvertiseProperty from "../Pages/Dashboard/RightSideContent/AdminRoutes/AdvertiseProperty/AdvertiseProperty";
 import Payment from "../Pages/Dashboard/RightSideContent/UsersRoutes/Payment/Payment";
 import ContactUs from "../Pages/ContactUs/ContactUs";
+import DashboardOverview from "../Pages/Dashboard/RightSideContent/DashboardOverview/DashboardOverview";
 const Router = createBrowserRouter([
     {
         path: '/',
@@ -91,6 +92,10 @@ const Router = createBrowserRouter([
             {
                 path: 'reviews',
                 element: <ReviewsPage></ReviewsPage>
+            },
+            {
+                path:'overview',
+                element:<DashboardOverview></DashboardOverview>
             },
             {
                 path: 'addProperty',

@@ -74,6 +74,15 @@ const LeftSide = () => {
         </NavLink>
     </>
     const agentLinks = <>
+    <NavLink 
+         className={({ isActive }) =>
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : "flex items-center"}
+        to='/dashboard/overview'>
+        <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
+            <FaUserFriends className="mr-3 text-lg" />
+           Overview
+        </li>
+        </NavLink>
         <NavLink
         className={({ isActive }) =>
             isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : "flex items-center"}
@@ -122,6 +131,15 @@ const LeftSide = () => {
     </>
 
     const adminLinks=<>
+     <NavLink 
+         className={({ isActive }) =>
+            isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : "flex items-center"}
+        to='/dashboard/overview'>
+        <li className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
+            <FaUserFriends className="mr-3 text-lg" />
+           Overview
+        </li>
+        </NavLink>
         <NavLink 
          className={({ isActive }) =>
             isActive ? " flex items-center text-blue-600 font-medium bg-blue-100 rounded-lg" : "flex items-center"}
