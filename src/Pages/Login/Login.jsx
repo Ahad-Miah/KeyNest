@@ -6,54 +6,83 @@ import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
 import { Helmet } from 'react-helmet-async';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
-    const navigate=useNavigate();
+    const navigate = useNavigate();
 
-        const {login,googleLogin,setLoading}=useContext(AuthContext);
-    const handleLogin=(e)=>{
+    const { login, googleLogin, setLoading } = useContext(AuthContext);
+    const handleLogin = (e) => {
         e.preventDefault();
-        const email=e.target.email.value;
-        const password=e.target.password.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
 
-        login(email,password)
-        .then(res=>{
-            e.target.reset();
-            // console.log(res);
-            toast.success("Logged in! Congratulations!");
-            navigate(location?.state ?location.state:"/");
-        })
-        .catch(err=>
-            {console.log(err)
+        login(email, password)
+            .then(res => {
+                e.target.reset();
+                // console.log(res);
+                toast.success("Logged in! Congratulations!");
+                navigate(location?.state ? location.state : "/");
+            })
+            .catch(err => {
+                console.log(err)
                 setLoading(false);
                 toast.error("Error !Invalid Email or Password!");
             });
 
     }
 
-    const handleGoogleLogin=()=>{
+    const handleGoogleLogin = () => {
         googleLogin()
-        .then(res=>{
-            // console.log(res);
-            toast.success("Login Successful");
-            navigate(location?.state ?location.state:"/");
-        })
-        .catch(err=>{
-            console.log(err);
-        })
+            .then(res => {
+                // console.log(res);
+                toast.success("Login Successful");
+                navigate(location?.state ? location.state : "/");
+            })
+            .catch(err => {
+                // console.log(err);
+            })
+    }
+    // modal open
+    const handleCredentials = () => {
+        Swal.fire({
+            title: "Login Credentials!",
+            // icon: "success",
+            draggable: true,
+            html: `
+            <div class='flex items-center gap-4 mb-8'>
+                               <div class=' border rounded-md flex justify-center p-4'><p class="font-bold">Admin</p></div>
+                               <div class='text-left'>  
+                                   <p>Email:admin@gmail.com</p>
+                                   <p>Password:1234@Sa</p>
+                               </div>
+                           </div>
+
+                            <div class='flex items-center gap-4 mb-8'>
+                               <div class=' border rounded-md flex justify-center p-4'><p class="font-bold">Agent</p></div>
+                               <div class='text-left'>  
+                                   <p>Email:agent@gmail.com</p>
+                                   <p>Password:1234@Sa</p>
+                               </div>
+                           </div>
+
+          `,
+        });
     }
     return (
         <div className="hero bg-base-100 min-h-screen">
             <Helmet>
-        <title>Login || KeyNest</title>
-      </Helmet>
+                <title>Login || KeyNest</title>
+            </Helmet>
             <div className="hero-content flex-col lg:flex-row-reverse gap-6">
                 <div className="text-center lg:text-left">
 
                     <Lottie className='lg:w-[400px] lg:h-[400px]' animationData={loginAnimation}></Lottie>
                 </div>
                 <div className="card bg-base-100 w-full md:max-w-sm shrink-0 shadow-2xl">
+                    <h1 className='text-3xl font-bold text-center mt-4'>Login</h1>
+                    <button onClick={handleCredentials} className='bg-blue-700 rounded-lg text-white font-semibold w-1/2 mx-auto h-10 mt-6'>Credentials</button>
                     <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
                             <label className="label">

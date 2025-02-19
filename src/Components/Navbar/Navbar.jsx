@@ -22,14 +22,15 @@ const Navbar = () => {
             className={({ isActive }) =>
                 isActive ? " text-[#C82021] font-bold text-[16px] underline" : ""}
             to='/'> <li><p>Home</p></li></NavLink>
+               <NavLink
+            className={({ isActive }) =>
+                isActive ? " text-[#C82021] font-bold text-[16px] underline" : ""}
+            to='/allProperties'><li><p>All Properties</p></li></NavLink>
             <NavLink
             className={({ isActive }) =>
                 isActive ? " text-[#C82021] font-bold text-[16px] underline" : ""}
             to='/contact'> <li><p>Contact Us</p></li></NavLink>
-              <NavLink
-            className={({ isActive }) =>
-                isActive ? " text-[#C82021] font-bold text-[16px] underline" : ""}
-            to='/allProperties'><li><p>All Properties</p></li></NavLink>
+           
         {
             user?<>
         <NavLink
