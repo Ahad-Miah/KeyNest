@@ -12,8 +12,8 @@ const HomePage = () => {
     return (
         <div>
             <Helmet>
-        <title>KeyNest</title>
-      </Helmet>
+                <title>KeyNest</title>
+            </Helmet>
             <section>
                 <Banner></Banner>
             </section>
@@ -27,7 +27,7 @@ const HomePage = () => {
                 <HowItWorks></HowItWorks>
             </section>
             <section>
-            <AboutUS></AboutUS>
+                <AboutUS></AboutUS>
             </section>
             <section>
                 <WhyChooseUS></WhyChooseUS>
