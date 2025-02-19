@@ -5,6 +5,7 @@ import Reviews from '../Reviews/Reviews';
 import HowItWorks from '../HowItWorks/HowItWorks';
 import AboutUS from '../AboutUs/AboutUS';
 import { Helmet } from 'react-helmet-async';
+import Faq from '../Faq/Faq';
 
 const HomePage = () => {
     return (
@@ -26,6 +27,9 @@ const HomePage = () => {
             </section>
             <section>
             <AboutUS></AboutUS>
+            </section>
+            <section>
+                <Faq></Faq>
             </section>
         </div>
     );
