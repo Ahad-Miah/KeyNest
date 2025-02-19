@@ -7,6 +7,7 @@ import AboutUS from '../AboutUs/AboutUS';
 import { Helmet } from 'react-helmet-async';
 import Faq from '../Faq/Faq';
 import WhyChooseUS from '../WhyChooseUS/WhyChooseUS';
+import OurCommitment from '../OurCommitment/OurCommitment';
 
 const HomePage = () => {
     return (
@@ -28,6 +29,9 @@ const HomePage = () => {
             </section>
             <section>
                 <AboutUS></AboutUS>
+            </section>
+            <section>
+                <OurCommitment></OurCommitment>
             </section>
             <section>
                 <WhyChooseUS></WhyChooseUS>

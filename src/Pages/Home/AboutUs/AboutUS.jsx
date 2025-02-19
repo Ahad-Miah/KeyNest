@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const AboutUs = () => {
   return (
     <section className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col-reverse lg:flex-row items-center gap-12">
+      <div className="container mx-auto px-6 flex flex-col-reverse lg:flex-row items-center gap-12">
         
         {/* Left Section - Text Content */}
         <motion.div 
@@ -33,7 +33,7 @@ const AboutUs = () => {
 
         {/* Right Section - Image */}
         <motion.div 
-          className="lg:w-1/2 flex justify-center"
+          className="lg:w-1/2 flex justify-end"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
